@@ -3,5 +3,7 @@ import vue from '@vitejs/plugin-vue'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/mc-ekat-projekt/',
   plugins: [vue()],
+  assetsInclude: ['**/*.mp4'],
 })

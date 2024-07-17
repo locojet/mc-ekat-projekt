@@ -27,7 +27,7 @@
     </form>
 
     <div class="texto-kontakt contact-info text-1xl bg-gray-800">
-      <p>Email: <a href="mailto:info@mcekat.de">info@mcekat.de</a></p>
+      <p>Email: <a href="mailto:juank2219@hotmail.com">info@mcekat.de</a></p>
       <p>Web: <a href="https://www.mcekat.de" target="_blank">www.mcekat.de</a></p>
       <p>Hauptbüro:<br>
         <a href="https://www.google.com/maps/search/?api=1&query=Heidmühlenweg+48a,+D-25336+Elmshorn" target="_blank">Heidmühlenweg 48a, D-25336 Elmshorn</a><br>
