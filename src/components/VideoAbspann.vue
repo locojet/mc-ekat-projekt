@@ -8,7 +8,7 @@
     </video>
     <div class=" haupt-ueberschrift absolute texto  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full px-4 text-center  md:text-left">
       <h1 class="text-white  font-bold text-4xl -mt-20 sm:text-3xl sm:-mt-20  md:text-3xl md:mt-40 lg:text-4xl lg:-mt-18 ">
-        Zerstörungsfreie Prüfung Zfp, NDT prueba
+        Zerstörungsfreie Prüfung Zfp, NDT 
       </h1>
       
       <h3 class="text-white uppercase text-base sm:text-lg mt-10">
