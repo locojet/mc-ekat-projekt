@@ -20,7 +20,12 @@ import { ref, onMounted, onBeforeUnmount } from 'vue'
 const showIcons = ref(false)
 
 const handleScroll = () => {
-  showIcons.value = window.scrollY > 10
+  const scrollPosition = window.scrollY
+  const scrollHeight = document.documentElement.scrollHeight
+  const windowHeight = window.innerHeight
+  
+  // Muestra los iconos si el scroll es mayor a 10 y no estamos al final de la página
+  showIcons.value = scrollPosition > 10 && scrollPosition + windowHeight < scrollHeight - 20
 }
 
 onMounted(() => {
