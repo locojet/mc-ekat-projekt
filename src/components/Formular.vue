@@ -5,33 +5,35 @@
         
         <!-- Información de contacto -->
         <div class="contact-info space-y-6">
-          <p>Email: <a href="mailto:juank2219@hotmail.com" class="text-blue-400 underline">info@mcekat.de</a></p>
+          <p>Email: <a href="mailto:info@mcekat.de" class="text-blue-400 underline">info@mcekat.de</a></p>
           <p>Web: <a href="https://www.mcekat.de" target="_blank" class="text-blue-400 underline">www.mcekat.de</a></p>
-          <p>
-            Hauptbüro:<br>
+          
+          <div>
+            <p class="font-semibold">Hauptbüro:</p>
             <a href="https://www.google.com/maps/search/?api=1&query=Heidmühlenweg+48a,+D-25336+Elmshorn"
                target="_blank"
                class="text-blue-400 underline">
                Heidmühlenweg 48a, D-25336 Elmshorn
             </a><br>
-            Telefon: <a href="tel:+494121579254" class="text-blue-400 underline">+49 (0) 4121 57 92 54</a><br>
-            Fax: +49 (0) 4121 57 92 56<br>
-            Mobil: <a href="tel:+491736003264" class="text-blue-400 underline">+49 (0) 173 600 32 64</a>
-          </p>
-          <p>
-            Zweigstelle:<br>
+            <span>Telefon: <a href="tel:+494121579254" class="text-blue-400 underline">+49 (0) 4121 57 92 54</a></span><br>
+            <span>Fax: +49 (0) 4121 57 92 56</span><br>
+            <span>Mobil: <a href="tel:+491736003264" class="text-blue-400 underline">+49 (0) 173 600 32 64</a></span>
+          </div>
+
+          <div>
+            <p class="font-semibold">Zweigstelle:</p>
             <a href="https://www.google.com/maps/search/?api=1&query=Kaltenhöfer+Weg+1c,+D-23999+Insel+Poel"
                target="_blank"
                class="text-blue-400 underline">
                Kaltenhöfer Weg 1c, D-23999 Insel Poel
             </a><br>
-            Telefon: <a href="tel:+493842542507" class="text-blue-400 underline">+49 (0) 38425 425 07</a><br>
-            Fax: +49 (0) 38425 425 08<br>
-            Mobil: <a href="tel:+491732371591" class="text-blue-400 underline">+49 (0) 173 237 15 91</a>
-          </p>
+            <span>Telefon: <a href="tel:+493842542507" class="text-blue-400 underline">+49 (0) 38425 425 07</a></span><br>
+            <span>Fax: +49 (0) 38425 425 08</span><br>
+            <span>Mobil: <a href="tel:+491732371591" class="text-blue-400 underline">+49 (0) 173 237 15 91</a></span>
+          </div>
         </div>
 
-        <!-- Formulario (comentado por ahora) -->
+        <!-- Formulario (opcional, activalo si lo necesitas) -->
         <!-- 
         <form @submit.prevent="submit(form)" class="flex flex-col space-y-4 p-6 rounded-lg bg-gray-700">
           <h1 class="text-2xl font-semibold text-center">Kontaktieren Sie uns</h1>
@@ -79,12 +81,11 @@ const success = ref(false);
 const waiting = ref(false);
 
 async function submit(form) {
-  console.log(form);
+  console.log(form); // Aquí conectás tu backend o API para enviar el correo
 }
 </script>
 
 <style scoped>
-
 .input {
   padding: 0.75rem;
   border-radius: 0.375rem;
