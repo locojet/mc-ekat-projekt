@@ -4,7 +4,7 @@
         <h2>🍪 Cookies & Datenschutz</h2>
         <p>
           Diese Seite verwendet Cookies, um deine Erfahrung zu verbessern. Akzeptierst du sie? 
-          <a href="#sec-cookies" target="_blank" class="cookie-link">Mehr Informationen</a>
+          <a href="/cookies-info.html" target="_blank" class="cookie-link">Mehr Informationen</a>
         </p>
         <div class="buttons">
           <button @click="acceptCookies">Akzeptieren</button>
@@ -57,7 +57,7 @@ export default {
   color: white;
   padding: 20px;
   border-radius: 8px;
-  z-index: 9999;
+  z-index: 10000;
   display: flex;
   justify-content: center;
   align-items: center;
