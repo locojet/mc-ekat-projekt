@@ -65,7 +65,7 @@
               <a href="#">Wirbelstromprüfung ET</a>
             </h3>
             <div class="relative mt-4">
-              <img src="../assets/wirbelstrompruefung.png" alt="Wirbelstromprüfung ET" class="object-cover h-48 w-full rounded-lg bg-primary">
+              <img src="" alt="Wirbelstromprüfung ET" class="object-cover h-48 w-full rounded-lg bg-primary">
             </div>
             <p class="mt-5 line-clamp-3 text-sm leading-6">ET zur Erkennung von Oberflächen- und geringfügigen Suboberflächendefekten in leitfähigen Materialien.</p>
           </div>
