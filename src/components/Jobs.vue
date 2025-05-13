@@ -1,20 +1,30 @@
 <template>
-  <div class="bg-secondary2 text-white p-4 -mt-10  shadow-lg pb-40 mb-16" id="sec-2">
-   
-    
-    <h1 class=" text-3xl text-top text-white m-8 text-center pt-20 pb-20">Wir suchen Dich zum nächstmöglichen Zeitpunkt in Vollzeit</h1>
-    <div class="w-full max-w-4xl mx-auto  bg-secondary2 text-white mb-18  shadow-md">
-      
-      <hr class="my-2">
+  <div class="bg-secondary2 text-white p-4 -mt-10 shadow-lg pb-40 mb-16" id="sec-2">
+    <h1 class="text-3xl text-white m-8 text-center pt-20 pb-20">
+      Wir suchen Dich zum nächstmöglichen Zeitpunkt in Vollzeit
+    </h1>
+
+    <div class="w-full max-w-4xl mx-auto bg-secondary2 text-white mb-18 shadow-md">
+      <hr class="my-2" />
 
       <div v-for="(item, index) in faqs" :key="index" class="faq m-4 text-start">
-        <h2 @click="toggle(index)" class="cursor-pointer text-white font-light my-4 text-lg m-2">
+        <h2
+          @click="toggle(index)"
+          class="cursor-pointer text-white font-light my-4 text-lg m-2"
+        >
           {{ item.question }}
         </h2>
-        <p v-show="item.isOpen" class="transition-opacity duration-500 ease-in-out max-h-full opacity-100 my-4 ml-5 text-white">
-          {{ item.answer }}
-        </p>
-        <hr>
+
+        <transition name="fade">
+          <div
+            v-if="item.isOpen"
+            class="faq-answer my-4 ml-5 text-white"
+          >
+            {{ item.answer }}
+          </div>
+        </transition>
+
+        <hr />
       </div>
     </div>
   </div>
@@ -59,5 +69,21 @@ export default {
 <style scoped>
 #sec-2 {
   box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.5);
+}
+
+/* Transición suave para las respuestas */
+.fade-enter-active, .fade-leave-active {
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.fade-enter-from, .fade-leave-to {
+  max-height: 0;
+  opacity: 0;
+}
+
+.fade-enter-to, .fade-leave-from {
+  max-height: 500px; /* Ajusta según el contenido máximo esperado */
+  opacity: 1;
 }
 </style>

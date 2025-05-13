@@ -12,6 +12,8 @@ import About from './components/About.vue';
 import Formular from './components/Formular.vue';
 import { onMounted } from 'vue'; // Importiere onMounted Funktion aus Vue
 import Cookies from './components/Cookies.vue';
+import Language from './components/Language.vue';
+
 // onMounted Hook: Führt Code aus, sobald die Komponente gemountet ist
 onMounted(() => {
   // Erstellt ein neues Skript-Element für JSON-LD
@@ -59,7 +61,9 @@ onMounted(() => {
 
 <template>
   <div id="app" class="grid-container">
+    
     <PageLoader />
+    <Language />
     <Cookies />
     <navigation />
     <VideoAbspann />

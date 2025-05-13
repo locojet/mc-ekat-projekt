@@ -17,7 +17,7 @@
               <a href="#">Ultraschalldickenmessungen</a>
             </h3>
             <div class="relative mt-4">
-              <img src="../assets/Verfahren/ultraschall.png" alt="Ultraschalldickenmessungen" class="object-cover h-48 w-full rounded-lg bg-primary">
+              <img src="../assets/Verfahren/ultraschall.png" alt="Ultraschalldickenmessungen" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
             <p class="mt-5 line-clamp-3 text-sm leading-6">Thickness Measurement ohne Zerstörung von Beschichtungen.</p>
           </div>
@@ -33,7 +33,7 @@
               <a href="#">Schweißnahtprüfungen UT</a>
             </h3>
             <div class="relative mt-4">
-              <img src="../assets/Verfahren/Schweissnahtprufung.png" alt="Schweißnahtprüfungen UT" class="object-cover h-48 w-full rounded-lg bg-primary">
+              <img src="../assets/Verfahren/ut-sp.png" alt="Schweißnahtprüfungen UT" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
             <p class="mt-5 line-clamp-3 text-sm leading-6">UT für Schweißnähte zur Erkennung von inneren Unregelmäßigkeiten.</p>
           </div>
@@ -49,7 +49,7 @@
               <a href="#">Magnetpulverprüfungen MP</a>
             </h3>
             <div class="relative mt-4">
-              <img src="../assets/Verfahren/mt.png" alt="Magnetpulverprüfungen MP" class="object-cover h-48 w-full rounded-lg bg-primary">
+              <img src="../assets/Verfahren/mt.png" alt="Magnetpulverprüfungen MP" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
             <p class="mt-5 line-clamp-3 text-sm leading-6">MP zum Auffinden von Oberflächendefekten in ferromagnetischen Materialien.</p>
           </div>
@@ -65,7 +65,7 @@
               <a href="#">Wirbelstromprüfung ET</a>
             </h3>
             <div class="relative mt-4">
-              <img src="" alt="Wirbelstromprüfung ET" class="object-cover h-48 w-full rounded-lg bg-primary">
+              <img src="../assets/Verfahren/et1.png" alt="Wirbelstromprüfung ET" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
             <p class="mt-5 line-clamp-3 text-sm leading-6">ET zur Erkennung von Oberflächen- und geringfügigen Suboberflächendefekten in leitfähigen Materialien.</p>
           </div>
@@ -81,7 +81,7 @@
               <a href="#">Visualisierungsprüfung VT</a>
             </h3>
             <div class="relative mt-4">
-              <img src="../assets/Verfahren/vt.png" alt="Visualisierungsprüfung VT" class="object-cover h-48 w-full rounded-lg bg-primary">
+              <img src="../assets/Verfahren/vt.png" alt="Visualisierungsprüfung VT" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
             <p class="mt-5 line-clamp-3 text-sm leading-6">VT zur direkten Beobachtung von Oberflächen, um Defekte oder Eigenschaften zu identifizieren.</p>
           </div>
@@ -97,7 +97,7 @@
               <a href="#">Eindringprüfungen PT</a>
             </h3>
             <div class="relative mt-4">
-              <img src="../assets/Verfahren/pt.png" alt="Eindringprüfungen PT" class="object-cover h-48 w-full rounded-lg bg-primary">
+              <img src="../assets/Verfahren/pt.png" alt="Eindringprüfungen PT" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
             <p class="mt-5 line-clamp-3 text-sm leading-6">PT nutzt farbige oder fluoreszierende Penetrierflüssigkeit zur Darstellung von Oberflächendefekten.</p>
           </div>
@@ -116,7 +116,7 @@
         <a href="#">Zulassung für NDT-Prüfungen im Offshore-Bereich</a>
       </h3>
       <div class="relative mt-4">
-              <img src="../assets/Verfahren/offshore.png" alt="Eindringprüfungen PT" class="object-cover h-48 w-full rounded-lg bg-primary">
+              <img src="../assets/Verfahren/offshore.png" alt="Eindringprüfungen PT" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
       <p class="mt-5 line-clamp-3 text-sm leading-6">Neu zugelassen für NDT-Prüfungen im Offshore-Bereich, DNV GL Supervisor Level III und II, Operatoren Level I verfügbar.</p>
     </div>
