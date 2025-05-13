@@ -17,7 +17,7 @@
             <p class="text-sm text-gray-600">Technischer Leiter / Geschäftsführer</p>
           </div>
           <div>
-            <img src="../assets/juan.JPG" alt="Foto Christian Ekat" class="w-64 h-64 object-cover mx-auto rounded-full shadow-md">
+            <img src="" alt="Foto Christian Ekat" class="w-64 h-64 object-cover mx-auto rounded-full shadow-md">
             <p class="mt-4 text-lg font-semibold text-gray-900">Christian Ekat</p>
             <p class="text-sm text-gray-600">CEO / Geschäftsführer</p>
           </div>
