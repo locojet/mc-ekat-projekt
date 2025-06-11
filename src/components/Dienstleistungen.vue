@@ -14,8 +14,8 @@
           </div>
           <div class="group relative">
             <h3 class="mt-3 text-lg font-semibold leading-6">
-              <a href="#">Ultraschalldickenmessungen</a>
-            </h3>
+  <a href="#">{{ $t('ndtSection.articles.ultraschall.title') }}</a>
+</h3>
             <div class="relative mt-4">
               <img src="../assets/Verfahren/ultraschall.png" alt="Ultraschalldickenmessungen" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
@@ -125,6 +125,9 @@
 
 <script setup>
 import { onMounted, onBeforeUnmount, ref } from 'vue';
+import { useI18n } from 'vue-i18n'; // 👈 Importas useI18n
+
+const { t } = useI18n(); // 👈 Te traes la función t
 
 const articles = ref([]);
 

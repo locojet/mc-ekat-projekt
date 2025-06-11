@@ -1,0 +1,26 @@
+{
+    "nav": {
+      "openMenu": "Open main menu",
+      "start": "Start",
+      "service": "Service",
+      "jobs": "Jobs",
+      "about": "About Us",
+      "contact": "Contact"
+    },
+
+        "parallax": {
+          "title": "Non-Destructive Testing NDT",
+          "methods": "VT, UT, MT, PT, ET",
+          "noVideoSupport": "Your browser does not support video."
+        },
+
+        
+            "ndtSection": {
+              "articles": {
+                "ultraschall": {
+                  "title": "Ultrasound Thickness UT"
+                }
+              }
+            
+          }
+  }

@@ -1,0 +1,27 @@
+{
+    "nav": {
+      "openMenu": "Hauptmenü öffnen",
+      "start": "Startseite",
+      "service": "Dienstleistung",
+      "jobs": "Jobs",
+      "about": "Über uns",
+      "contact": "Kontakt"
+    },
+
+     "parallax": {
+          "title": "Zerstörungsfreie Prüfung Zfp",
+          "methods": "VT, UT, MT, PT, ET",
+          "noVideoSupport": "Ihr Browser unterstützt kein Video."
+        },
+
+        
+            "ndtSection": {
+              "articles": {
+                "ultraschall": {
+                  "title": "Ultraschalldickenmessungen UT"
+                }
+              }
+            
+          }
+      
+    }

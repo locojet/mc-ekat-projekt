@@ -8,7 +8,7 @@
             <DisclosureButton
               class="relative inline-flex items-center justify-center rounded-md p-2 text-white focus:outline-none hover:scale-105 focus:ring-inset focus:ring-white"
             >
-              <span class="sr-only">Open main menu</span>
+              <span class="sr-only">{{ $t('nav.openMenu') }}</span>
               <Bars3Icon v-if="!open" class="block h-6 w-6 scale-150" aria-hidden="true" />
               <XMarkIcon v-else class="block h-6 w-6" aria-hidden="true" />
             </DisclosureButton>
@@ -30,18 +30,21 @@
             </div>
           </div>
 
-          <!-- Logo -->
-          <Menu as="div" class="relative ml-3">
+          <!-- Logo y selector de idioma -->
+          <Menu as="div" class="relative ml-3 flex items-center gap-4">
             <a href="index.html">
               <MenuButton>
                 <img class="logo" src="../assets/logo.png" alt="Logo" />
               </MenuButton>
             </a>
+
+            <!-- Selector de idioma -->
+            <LanguageSwitcher />
           </Menu>
         </div>
       </div>
 
-      <!-- Menú móvil con nueva estructura -->
+      <!-- Menú móvil -->
       <Transition
         enter-active-class="transition-all duration-500 ease-in-out"
         enter-from-class="max-h-0 opacity-0"
@@ -52,35 +55,37 @@
       >
         <DisclosurePanel class="sm:hidden overflow-hidden mt-20">
           <div class="pb-3 pt-4 flex flex-col items-center text-white space-y-4">
-            <!-- Línea superior -->
             <div class="flex w-full justify-center">
               <div class="flex w-4/5 justify-between items-start relative">
-                <!-- Columna izquierda -->
+                <!-- Izquierda -->
                 <div class="flex flex-col space-y-2 items-start">
-                  <DisclosureButton as="a" href="#sec-0" class="text-base font-medium">Start</DisclosureButton>
+                  <DisclosureButton as="a" href="#sec-0" class="text-base font-medium">{{ $t('nav.start') }}</DisclosureButton>
                   <div class="w-3/4 h-px bg-white/30 ml-1"></div>
-                  <DisclosureButton as="a" href="#sec-1" class="text-base font-medium">Dienstleistung</DisclosureButton>
+                  <DisclosureButton as="a" href="#sec-1" class="text-base font-medium">{{ $t('nav.service') }}</DisclosureButton>
                 </div>
 
-                <!-- Línea vertical centrada -->
+                <!-- Línea vertical -->
                 <div class="w-px bg-white/30 h-16 self-center"></div>
 
-                <!-- Columna derecha -->
+                <!-- Derecha -->
                 <div class="flex flex-col space-y-2 items-end">
-                  <DisclosureButton as="a" href="#sec-2" class="text-base font-medium">Jobs</DisclosureButton>
+                  <DisclosureButton as="a" href="#sec-2" class="text-base font-medium">{{ $t('nav.jobs') }}</DisclosureButton>
                   <div class="w-3/4 h-px bg-white/30 mr-1 self-end"></div>
-                  <DisclosureButton as="a" href="#sec-3" class="text-base font-medium">Über uns</DisclosureButton>
+                  <DisclosureButton as="a" href="#sec-3" class="text-base font-medium">{{ $t('nav.about') }}</DisclosureButton>
                 </div>
               </div>
             </div>
 
-            <!-- Línea horizontal corta -->
+            <!-- Línea horizontal -->
             <div class="h-px bg-white/30 w-2/3 my-2"></div>
 
-            <!-- Kontakt abajo -->
+            <!-- Kontakt -->
             <DisclosureButton as="a" href="#sec-4" class="text-base font-medium">
-              Kontakt
+              {{ $t('nav.contact') }}
             </DisclosureButton>
+
+            <!-- Selector de idioma en menú móvil -->
+            <LanguageSwitcher />
           </div>
         </DisclosurePanel>
       </Transition>
@@ -89,16 +94,26 @@
 </template>
 
 <script setup>
-import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton } from '@headlessui/vue';
+import {
+  Disclosure,
+  DisclosureButton,
+  DisclosurePanel,
+  Menu,
+  MenuButton
+} from '@headlessui/vue';
 import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
-import { ref, onMounted, onUnmounted } from 'vue';
+import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import LanguageSwitcher from './LanguageSwitcher.vue'; // 👈 aquí lo traés
 
-const navigation = ref([
-  { name: 'Start', href: '#sec-0', current: false },
-  { name: 'Dienstleistung', href: '#sec-1', current: false },
-  { name: 'Jobs', href: '#sec-2', current: false },
-  { name: 'Über uns', href: '#sec-3', current: false },
-  { name: 'Kontakt', href: '#sec-4', current: false },
+const { t } = useI18n();
+
+const navigation = computed(() => [
+  { name: t('nav.start'), href: '#sec-0' },
+  { name: t('nav.service'), href: '#sec-1' },
+  { name: t('nav.jobs'), href: '#sec-2' },
+  { name: t('nav.about'), href: '#sec-3' },
+  { name: t('nav.contact'), href: '#sec-4' }
 ]);
 
 const scrollToSection = (sectionId) => {

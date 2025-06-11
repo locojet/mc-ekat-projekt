@@ -1,16 +1,19 @@
 
 import { createApp } from 'vue'
-import './style.css'
 import App from './App.vue'
-import AOS from 'aos';
-import 'aos/dist/aos.css';
+import './style.css'
 
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 
-AOS.init();
+import i18n from './i18n' // 👈 añadimos i18n
 
+AOS.init()
 
-createApp(App).mount('#app')
+const app = createApp(App)
 
+app.use(i18n) // 👈 activamos i18n
+app.mount('#app')
 
 
 

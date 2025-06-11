@@ -12,7 +12,7 @@ import About from './components/About.vue';
 import Formular from './components/Formular.vue';
 import { onMounted } from 'vue'; // Importiere onMounted Funktion aus Vue
 import Cookies from './components/Cookies.vue';
-import Language from './components/Language.vue';
+import Language from './components/LanguageSwitcher.vue';
 
 // onMounted Hook: Führt Code aus, sobald die Komponente gemountet ist
 onMounted(() => {
