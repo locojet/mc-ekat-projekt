@@ -15,7 +15,7 @@
     </video>
 
     <div
-      class="haupt-ueberschrift absolute texto top-1/2 left-[55%] transform -translate-x-1/2 -translate-y-1/2 z-10 w-full px-4 text-center md:text-left"
+      class="haupt-ueberschrift absolute texto top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full px-4 text-center md:text-left responsive-left"
     >
       <h1 class="text-white font-bold text-4xl -mt-20 sm:text-3xl sm:-mt-20 md:text-3xl md:mt-40 lg:text-4xl lg:-mt-18">
         {{ $t('parallax.title') }}
@@ -51,7 +51,18 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+/* Ajuste responsive del left */
+.responsive-left {
+  left: 50%;
+}
+
+@media (min-width: 768px) {
+  .responsive-left {
+    left: 55%;
+  }
+}
+
 @media (max-width: 768px) {
   .video-container {
     height: 75vh;

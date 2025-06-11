@@ -1,5 +1,5 @@
 <template>
-  <div id="nav" class="fixed-nav-container" :style="{ 'background-color': backgroundColor }">
+  <div id="nav" class="fixed-nav-container" :class="{ 'bg-visible': isScrolled }">
     <Disclosure as="nav" v-slot="{ open }">
       <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
         <div class="relative flex h-16 items-center justify-between">
@@ -38,20 +38,22 @@
               </MenuButton>
             </a>
 
-            <!-- Selector de idioma -->
-            <LanguageSwitcher />
+            <!-- Selector de idioma visible solo en pantallas grandes -->
+            <div class="hidden sm:block">
+              <LanguageSwitcher />
+            </div>
           </Menu>
         </div>
       </div>
 
-      <!-- Menú móvil -->
+      <!-- Menú móvil con transición más lenta y suave -->
       <Transition
-        enter-active-class="transition-all duration-500 ease-in-out"
-        enter-from-class="max-h-0 opacity-0"
-        enter-to-class="max-h-96 opacity-100"
-        leave-active-class="transition-all duration-300 ease-in-out"
-        leave-from-class="max-h-96 opacity-100"
-        leave-to-class="max-h-0 opacity-0"
+        enter-active-class="transition-all duration-1000 ease-in-out"
+        enter-from-class="opacity-0 -translate-y-6 max-h-0"
+        enter-to-class="opacity-100 translate-y-0 max-h-[600px]"
+        leave-active-class="transition-all duration-800 ease-in-out"
+        leave-from-class="opacity-100 translate-y-0 max-h-[600px]"
+        leave-to-class="opacity-0 -translate-y-6 max-h-0"
       >
         <DisclosurePanel class="sm:hidden overflow-hidden mt-20">
           <div class="pb-3 pt-4 flex flex-col items-center text-white space-y-4">
@@ -83,9 +85,6 @@
             <DisclosureButton as="a" href="#sec-4" class="text-base font-medium">
               {{ $t('nav.contact') }}
             </DisclosureButton>
-
-            <!-- Selector de idioma en menú móvil -->
-            <LanguageSwitcher />
           </div>
         </DisclosurePanel>
       </Transition>
@@ -100,13 +99,13 @@ import {
   DisclosurePanel,
   Menu,
   MenuButton
-} from '@headlessui/vue';
-import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline';
-import { ref, onMounted, onUnmounted, computed } from 'vue';
-import { useI18n } from 'vue-i18n';
-import LanguageSwitcher from './LanguageSwitcher.vue'; // 👈 aquí lo traés
+} from '@headlessui/vue'
+import { Bars3Icon, XMarkIcon } from '@heroicons/vue/24/outline'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+import LanguageSwitcher from './LanguageSwitcher.vue'
 
-const { t } = useI18n();
+const { t } = useI18n()
 
 const navigation = computed(() => [
   { name: t('nav.start'), href: '#sec-0' },
@@ -114,29 +113,28 @@ const navigation = computed(() => [
   { name: t('nav.jobs'), href: '#sec-2' },
   { name: t('nav.about'), href: '#sec-3' },
   { name: t('nav.contact'), href: '#sec-4' }
-]);
+])
 
 const scrollToSection = (sectionId) => {
-  const section = document.querySelector(sectionId);
+  const section = document.querySelector(sectionId)
   if (section) {
-    section.scrollIntoView({ behavior: 'smooth' });
+    section.scrollIntoView({ behavior: 'smooth' })
   }
-};
+}
 
-const backgroundColor = ref('rgba(49, 61, 76, 0)');
+const isScrolled = ref(false)
 
 const handleScroll = () => {
-  const scrolled = window.scrollY;
-  backgroundColor.value = `rgba(49, 61, 76, ${scrolled > 50 ? 1 : 0})`;
-};
+  isScrolled.value = window.scrollY > 50
+}
 
 onMounted(() => {
-  window.addEventListener('scroll', handleScroll);
-});
+  window.addEventListener('scroll', handleScroll)
+})
 
 onUnmounted(() => {
-  window.removeEventListener('scroll', handleScroll);
-});
+  window.removeEventListener('scroll', handleScroll)
+})
 </script>
 
 <style scoped>
@@ -145,7 +143,13 @@ onUnmounted(() => {
   width: 100%;
   top: 0;
   z-index: 1000;
-  transition: background-color 0.5s ease;
+  background-color: rgba(49, 61, 76, 0);
+  transition: background-color 0.8s ease-in-out;
+}
+
+/* Clase que activa la opacidad suave */
+.bg-visible {
+  background-color: rgba(49, 61, 76, 0.95);
 }
 
 .logo {

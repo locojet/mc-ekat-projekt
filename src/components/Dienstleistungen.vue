@@ -2,104 +2,104 @@
   <div id="sec-1" class="bg-white py-24 sm:py-32 p-4 -mt-6 max-w-7xl">
     <div class="mx-auto max-w-7xl">
       <div class="mx-auto max-w-2xl">
-        <h2 class="text-3xl font-bold tracking-tight -mt-6 text-gray-900 sm:text-4xl text-center">Zerstörungsfreie Werkstoffprüfung (ZFP/NDT)</h2>
-        <p class="mt-0 text-lg leading-8 text-gray-600 text-center sm:-mb-5">Entdecken Sie unsere Prüfverfahren zur Werkstoffprüfung ohne Materialbeschädigung.</p>
+        <h2 class="text-3xl font-bold tracking-tight -mt-6 text-gray-900 sm:text-4xl text-center">{{ $t('ndtSection.title') }}</h2>
+        <p class="mt-0 text-lg leading-8 text-gray-600 text-center sm:-mb-5">{{ $t('ndtSection.subtitle') }}</p>
       </div>
       <div class="mx-auto mt-0 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-6 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-9 lg:mx-0 lg:max-w-none lg:grid-cols-3">
 
         <!-- Ultraschalldickenmessungen -->
         <article class="flex flex-col text-justify m-5 pt-0">
           <div class="flex items-center justify-center gap-x-4 text-xs">
-            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Ultraschall</a>
+            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ $t('ndtSection.articles.ultraschall.tag') }}</a>
           </div>
           <div class="group relative">
             <h3 class="mt-3 text-lg font-semibold leading-6">
-  <a href="#">{{ $t('ndtSection.articles.ultraschall.title') }}</a>
-</h3>
+              <a href="#">{{ $t('ndtSection.articles.ultraschall.title') }}</a>
+            </h3>
             <div class="relative mt-4">
               <img src="../assets/Verfahren/ultraschall.png" alt="Ultraschalldickenmessungen" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
-            <p class="mt-5 line-clamp-3 text-sm leading-6">Thickness Measurement ohne Zerstörung von Beschichtungen.</p>
+            <p class="mt-5 line-clamp-3 text-sm leading-6">{{ $t('ndtSection.articles.ultraschall.description') }}</p>
           </div>
         </article>
 
         <!-- Schweißnahtprüfungen UT -->
         <article class="flex flex-col text-justify m-5">
           <div class="flex items-center justify-center gap-x-4 text-xs">
-            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Ultraschall</a>
+            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ $t('ndtSection.articles.ut.tag') }}</a>
           </div>
           <div class="group relative">
             <h3 class="mt-3 text-lg font-semibold leading-6">
-              <a href="#">Schweißnahtprüfungen UT</a>
+              <a href="#">{{ $t('ndtSection.articles.ut.title') }}</a>
             </h3>
             <div class="relative mt-4">
               <img src="../assets/Verfahren/ut-sp.png" alt="Schweißnahtprüfungen UT" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
-            <p class="mt-5 line-clamp-3 text-sm leading-6">UT für Schweißnähte zur Erkennung von inneren Unregelmäßigkeiten.</p>
+            <p class="mt-5 line-clamp-3 text-sm leading-6">{{ $t('ndtSection.articles.ut.description') }}</p>
           </div>
         </article>
 
         <!-- Magnetpulverprüfungen MP -->
         <article class="flex flex-col text-justify m-5">
           <div class="flex items-center justify-center gap-x-4 text-xs">
-            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Magnetisch</a>
+            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ $t('ndtSection.articles.mp.tag') }}</a>
           </div>
           <div class="group relative">
             <h3 class="mt-3 text-lg font-semibold leading-6">
-              <a href="#">Magnetpulverprüfungen MP</a>
+              <a href="#">{{ $t('ndtSection.articles.mp.title') }}</a>
             </h3>
             <div class="relative mt-4">
               <img src="../assets/Verfahren/mt.png" alt="Magnetpulverprüfungen MP" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
-            <p class="mt-5 line-clamp-3 text-sm leading-6">MP zum Auffinden von Oberflächendefekten in ferromagnetischen Materialien.</p>
+            <p class="mt-5 line-clamp-3 text-sm leading-6">{{ $t('ndtSection.articles.mp.description') }}</p>
           </div>
         </article>
 
         <!-- Wirbelstromprüfung ET -->
         <article class="flex flex-col text-justify m-5">
           <div class="flex items-center justify-center gap-x-4 text-xs">
-            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Elektrisch</a>
+            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ $t('ndtSection.articles.et.tag') }}</a>
           </div>
           <div class="group relative">
             <h3 class="mt-3 text-lg font-semibold leading-6">
-              <a href="#">Wirbelstromprüfung ET</a>
+              <a href="#">{{ $t('ndtSection.articles.et.title') }}</a>
             </h3>
             <div class="relative mt-4">
               <img src="../assets/Verfahren/et1.png" alt="Wirbelstromprüfung ET" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
-            <p class="mt-5 line-clamp-3 text-sm leading-6">ET zur Erkennung von Oberflächen- und geringfügigen Suboberflächendefekten in leitfähigen Materialien.</p>
+            <p class="mt-5 line-clamp-3 text-sm leading-6">{{ $t('ndtSection.articles.et.description') }}</p>
           </div>
         </article>
 
         <!-- Visualisierungsprüfung VT -->
         <article class="flex flex-col text-justify m-5">
           <div class="flex items-center justify-center gap-x-4 text-xs">
-            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Optisch</a>
+            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ $t('ndtSection.articles.vt.tag') }}</a>
           </div>
           <div class="group relative">
             <h3 class="mt-3 text-lg font-semibold leading-6">
-              <a href="#">Visualisierungsprüfung VT</a>
+              <a href="#">{{ $t('ndtSection.articles.vt.title') }}</a>
             </h3>
             <div class="relative mt-4">
               <img src="../assets/Verfahren/vt.png" alt="Visualisierungsprüfung VT" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
-            <p class="mt-5 line-clamp-3 text-sm leading-6">VT zur direkten Beobachtung von Oberflächen, um Defekte oder Eigenschaften zu identifizieren.</p>
+            <p class="mt-5 line-clamp-3 text-sm leading-6">{{ $t('ndtSection.articles.vt.description') }}</p>
           </div>
         </article>
 
         <!-- Eindringprüfungen PT -->
         <article class="flex flex-col text-justify m-5">
           <div class="flex items-center justify-center gap-x-4 text-xs">
-            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Chemisch</a>
+            <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">{{ $t('ndtSection.articles.pt.tag') }}</a>
           </div>
           <div class="group relative">
             <h3 class="mt-3 text-lg font-semibold leading-6">
-              <a href="#">Eindringprüfungen PT</a>
+              <a href="#">{{ $t('ndtSection.articles.pt.title') }}</a>
             </h3>
             <div class="relative mt-4">
               <img src="../assets/Verfahren/pt.png" alt="Eindringprüfungen PT" class="object-cover h-64 w-full rounded-lg bg-primary">
             </div>
-            <p class="mt-5 line-clamp-3 text-sm leading-6">PT nutzt farbige oder fluoreszierende Penetrierflüssigkeit zur Darstellung von Oberflächendefekten.</p>
+            <p class="mt-5 line-clamp-3 text-sm leading-6">{{ $t('ndtSection.articles.pt.description') }}</p>
           </div>
         </article>
       </div>
@@ -109,16 +109,16 @@
   <!-- Zulassung für NDT-Prüfungen im Offshore-Bereich -->
   <article class="flex flex-col items-center justify-center text-start m-5 p10 pb-20">
     <div class="flex items-center justify-center gap-x-4 text-xs mt-[-5rem]">
-      <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-secondary2 hover:bg-gray-100">Offshore</a>
+      <a href="#" class="relative rounded-full bg-gray-50 px-3 py-1.5 font-medium text-secondary2 hover:bg-gray-100">{{ $t('ndtSection.offshore.tag') }}</a>
     </div>
     <div class="group relative p-6">
       <h3 class="mt-3 text-lg font-semibold leading-6 text-center">
-        <a href="#">Zulassung für NDT-Prüfungen im Offshore-Bereich</a>
+        <a href="#">{{ $t('ndtSection.offshore.title') }}</a>
       </h3>
       <div class="relative mt-4">
-              <img src="../assets/Verfahren/offshore.png" alt="Eindringprüfungen PT" class="object-cover h-64 w-full rounded-lg bg-primary">
-            </div>
-      <p class="mt-5 line-clamp-3 text-sm leading-6">Neu zugelassen für NDT-Prüfungen im Offshore-Bereich, DNV GL Supervisor Level III und II, Operatoren Level I verfügbar.</p>
+        <img src="../assets/Verfahren/offshore.png" alt="Eindringprüfungen PT" class="object-cover h-64 w-full rounded-lg bg-primary">
+      </div>
+      <p class="mt-5 line-clamp-3 text-sm leading-6">{{ $t('ndtSection.offshore.description') }}</p>
     </div>
   </article>
 </template>

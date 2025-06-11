@@ -15,12 +15,172 @@
         },
 
         
-            "ndtSection": {
-              "articles": {
-                "ultraschall": {
-                  "title": "Ultrasound Thickness UT"
-                }
+        
+          "ndtSection": {
+            "title": "Non-Destructive Testing (NDT)",
+            "subtitle": "Discover our testing methods for material inspection without damage.",
+            "articles": {
+              "ultraschall": {
+                "tag": "Ultrasound",
+                "title": "Thickness Measurement UT",
+                "description": "Thickness measurement without damaging coatings."
+              },
+              "ut": {
+                "tag": "Ultrasound",
+                "title": "Weld Seam Testing UT",
+                "description": "UT for weld seams to detect internal irregularities."
+              },
+              "mp": {
+                "tag": "Magnetic",
+                "title": "Magnetic Particle Testing MP",
+                "description": "MP to find surface defects in ferromagnetic materials."
+              },
+              "et": {
+                "tag": "Electrical",
+                "title": "Eddy Current Testing ET",
+                "description": "ET for detecting surface and slight subsurface defects in conductive materials."
+              },
+              "vt": {
+                "tag": "Visual",
+                "title": "Visual Testing VT",
+                "description": "VT for direct observation of surfaces to identify defects or characteristics."
+              },
+              "pt": {
+                "tag": "Chemical",
+                "title": "Penetrant Testing PT",
+                "description": "PT uses colored or fluorescent penetrants to reveal surface defects."
               }
+            },
+            "offshore": {
+              "tag": "Offshore",
+              "title": "Approval for NDT Testing in Offshore Sector",
+              "description": "Newly approved for NDT testing offshore, DNV GL Supervisor Level III and II, operators Level I available."
+            }
+          },
+
+          
+            "jobs": {
+              "title": "We are hiring full-time as soon as possible",
+              "faqs": [
+                {
+                  "question": "What are the main tasks in this job?",
+                  "answer": "You will support us with material testing both domestically and internationally, mainly in Northern Germany."
+                },
+                {
+                  "question": "What qualifications should I bring?",
+                  "answer": "Flexible, athletic, technical background and English skills are an advantage. A class 3 or B driver’s license, ideally with BE, is required. Certification as an NDT inspector at least Level 1 (UT, PT, MP, VT, ET) would be beneficial."
+                },
+                {
+                  "question": "Can I apply without specific prior knowledge?",
+                  "answer": "Yes, all further necessary skills and knowledge can be learned with us."
+                },
+                {
+                  "question": "What does this position offer me?",
+                  "answer": "The job is very varied, you will be part of a highly motivated team, there are opportunities for further training and an attractive salary model."
+                }
+              ]
+            },
+
+
             
-          }
+              "about": {
+                "title": "About us",
+                "description": "We offer extensive expertise in non-destructive material testing (NDT) such as PT, UT, MP, VT, and ET, as well as a broad range of services and technologies in wear protection and repairs – especially for ON- and OFFSHORE areas. Our customer base ranges from commerce, industry, and shipping to many service providers such as shipyards, shipping companies, power plants, and more. Our services also extend to industries like automotive, aerospace, research institutions, trades, government agencies, zoos, agriculture, the medical sector, and beyond.",
+                "christianTitle": "CEO / Managing Director",
+                "mathiasTitle": "Technical Director / Managing Director",
+                "philosophy": {
+                  "title": "Philosophy",
+                  "text": "Our company philosophy includes repair and maintenance, as well as value preservation and enhancement. Services are individually tailored to each business situation. If necessary, standardized and flexible procedures are also used."
+                },
+                "guarantee": {
+                  "title": "Guarantee",
+                  "text": "We stand by the quality of our work and guarantee the highest standards in all our services. Our years of experience and ongoing training ensure reliable results."
+                },
+                "method": {
+                  "title": "Method",
+                  "text": "Use our expertise to reduce your costs. Our mission is to support customers with high-quality products and sound technical knowledge. We offer comprehensive situation analysis, preliminary diagnostics, improvement suggestions, material selection, and technologies to protect components from wear, corrosion, heat, and other influences."
+                },
+                "service": {
+                  "title": "Services",
+                  "text": "Worldwide – around the clock. We offer 24/7 consulting, repair, maintenance, sales, and delivery. You can rely on us – anytime, anywhere."
+                }
+              },
+
+              
+              
+                "footer": {
+                  "kontakt": {
+                    "title": "Contact",
+                    "company": "m-c-EKAT Verschleißschutz & Reparatur GmbH.",
+                    "address1": "Heidmühlenweg 48a, D-25336 Elmshorn",
+                    "phone1": "Phone: +49 (0) 4121 57 92 54",
+                    "fax1": "Fax: +49 (0) 4121 57 92 56",
+                    "mobile1": "Mobile: +49 (0) 173 600 32 64",
+                    "address2": "Kaltenhöfer Weg 1c, D-23999 Insel Poel",
+                    "phone2": "Phone: +49 (0) 38425 425 07",
+                    "fax2": "Fax: +49 (0) 38425 425 08",
+                    "mobile2": "Mobile: +49 (0) 173 237 15 91",
+                    "email": "Email",
+                    "web": "Website"
+                  },
+                  "impressum": {
+                    "title": "Imprint",
+                    "content": "Information according to § 5 TMG: m-c-EKAT Verschleißschutz & Reparatur GmbH., Heidmühlenweg 48a, D-25336 Elmshorn, Kaltenhöfer Weg 1c, D-23999 Kirchdorf/Poel, Registration court: Pinneberg District Court, Commercial register: HRB 2315 EL, VAT ID No.: DE 230 119 681 (according to § 27 a VAT Act), Managing Directors: Mathias Ekat, Christian Ekat, Internet: info@mcekat.de, Responsible for content according to § 55 Abs. 2 RStV: Christian Ekat, Kaltenhöfer Weg 1c, 23999 Insel Poel, Note on EU dispute resolution: The European Commission provides a platform for online dispute resolution (ODR): http://ec.europa.eu/consumers/odr, Our e-mail address can be found in the imprint above.",
+                    "disclaimerTitle": "Disclaimer",
+                    "disclaimerContent": "Liability for content: As service providers, we are responsible for our own content on these pages according to general laws in accordance with § 7 Abs.1 TMG..."
+                  },
+                  "datenschutz": {
+                    "title": "Privacy Policy",
+                    "privacyPolicy": "Privacy statement: Protecting and securing the data you provide and its confidentiality is very important to us. We only process personal data within the framework of legal regulations. For more details, please see our full privacy policy on the website.",
+                    "responsible": "Responsible entity: m-c-EKAT Verschleißschutz & Reparatur GmbH., Christian Ekat, Heidmühlenweg 48a, D-235336 Elmshorn",
+                    "security": "Security and protection of personal data: Protecting and securing the data you provide and its confidentiality is very important to us...",
+                    "lawfulness": "Lawfulness of processing: The processing of personal data is only lawful if there is a legal basis for the processing...",
+                    "withdrawal": "Withdrawal of your consent to data processing: Some data processing operations are only possible with your explicit consent...",
+                    "complaint": "Right to complain to the competent supervisory authority: As a data subject, you have the right to complain in the event of a data protection violation...",
+                    "rights": "Right to information, correction, blocking, deletion: According to legal provisions, you have the right at any time to receive free information...",
+                    "objection": "Right to object: You have the right, for reasons arising from your particular situation, to object at any time to the processing of personal data concerning you...",
+                    "serverLogs": "Server log files: The provider of the pages automatically collects and stores information in so-called server log files...",
+                    "cookies": "Cookies: The website partially uses so-called cookies...",
+                    "links": "Links: This privacy policy does not extend to external links provided on our website...",
+                    "spamObjection": "Objection to advertising emails: The use of contact data published in accordance with the imprint obligation for sending unsolicited advertising is hereby objected to."
+                  },
+                  "rights_reserved": "All rights reserved."
+                },
+
+
+               
+                  "cookiePopup": {
+                    "title": "Cookies & Privacy",
+                    "message": "This site uses cookies to improve your experience. Do you accept them?",
+                    "infoLink": "/cookies-info.html",
+                    "moreInfo": "More information",
+                    "accept": "Accept",
+                    "reject": "Reject"
+                  },
+
+                  
+                    "cookieDetails": {
+                      "detailsTitle": "Details about Cookies and Data Protection",
+                      "intro": "We use cookies to optimize user experience, analyze site usage, and personalize content and ads.",
+                  
+                      "essentialTitle": "Essential Cookies",
+                      "essentialText": "These cookies are necessary for the website to function properly and cannot be disabled.",
+                  
+                      "statsTitle": "Statistics Cookies",
+                      "statsText": "These cookies help us understand how visitors interact with the website by collecting anonymous information.",
+                  
+                      "marketingTitle": "Marketing Cookies",
+                      "marketingText": "Used to track visitors across websites to display relevant and engaging ads.",
+                  
+                      "privacyTitle": "Data Protection (Datenschutz)",
+                      "privacyText": "We take your personal data protection seriously. Please refer to our privacy policy for more details.",
+                  
+                      "close": "Close"
+                    }
+                 
+                  
+                   
+                
+               
+          
   }

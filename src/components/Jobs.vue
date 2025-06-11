@@ -1,26 +1,39 @@
 <template>
   <div class="bg-secondary2 text-white p-4 -mt-10 shadow-lg pb-40 mb-16" id="sec-2">
     <h1 class="text-3xl text-white m-8 text-center pt-20 pb-20">
-      Wir suchen Dich zum nächstmöglichen Zeitpunkt in Vollzeit
+      {{ $t('jobs.title') }}
     </h1>
 
     <div class="w-full max-w-4xl mx-auto bg-secondary2 text-white mb-18 shadow-md">
       <hr class="my-2" />
 
-      <div v-for="(item, index) in faqs" :key="index" class="faq m-4 text-start">
+      <div
+        v-for="(item, index) in faqs"
+        :key="index"
+        class="faq m-4 text-start"
+      >
         <h2
           @click="toggle(index)"
-          class="cursor-pointer text-white font-light my-4 text-lg m-2"
+          class="cursor-pointer text-white font-light my-4 text-lg m-2 transition duration-200 hover:opacity-80"
         >
-          {{ item.question }}
+          {{ $t(item.question) }}
         </h2>
 
-        <transition name="fade">
+        <transition
+          name="accordion"
+          @before-enter="beforeEnter"
+          @enter="enter"
+          @before-leave="beforeLeave"
+          @leave="leave"
+        >
           <div
-            v-if="item.isOpen"
-            class="faq-answer my-4 ml-5 text-white"
+            v-show="openIndex === index"
+            ref="answers"
+            class="faq-answer overflow-hidden text-white ml-5"
           >
-            {{ item.answer }}
+            <div class="py-2">
+              {{ $t(item.answer) }}
+            </div>
           </div>
         </transition>
 
@@ -34,56 +47,56 @@
 export default {
   data() {
     return {
+      openIndex: null,
       faqs: [
         {
-          question: 'Was sind die Hauptaufgaben in diesem Job?',
-          answer: 'Sie unterstützen uns bei Werkstoffprüfungen sowohl im Inland als auch im Ausland, vorwiegend in Norddeutschland.',
-          isOpen: false
+          question: 'jobs.faqs.0.question',
+          answer: 'jobs.faqs.0.answer'
         },
         {
-          question: 'Welche Qualifikationen sollte ich mitbringen?',
-          answer: 'Flexibel, sportlich, technischer Berufshintergrund und Englischkenntnisse sind vorteilhaft. Ein Führerschein der Klasse 3 oder B, idealerweise mit BE, ist erforderlich. Eine Zertifizierung als ZFP-Prüfer mindestens Stufe 1 (UT, PT, MP, VT, ET) wäre von Vorteil.',
-          isOpen: false
+          question: 'jobs.faqs.1.question',
+          answer: 'jobs.faqs.1.answer'
         },
         {
-          question: 'Kann ich mich auch ohne spezifische Vorkenntnisse bewerben?',
-          answer: 'Ja, alle weiteren notwendigen Fähigkeiten und Kenntnisse können bei uns erlernt werden.',
-          isOpen: false
+          question: 'jobs.faqs.2.question',
+          answer: 'jobs.faqs.2.answer'
         },
         {
-          question: 'Was bietet mir diese Position?',
-          answer: 'Die Tätigkeit ist sehr abwechslungsreich, Sie werden Teil eines hoch motivierten Teams, es gibt Möglichkeiten zur Weiterbildung und Schulungen sowie ein attraktives Vergütungsmodell.',
-          isOpen: false
+          question: 'jobs.faqs.3.question',
+          answer: 'jobs.faqs.3.answer'
         }
       ]
-    }
+    };
   },
   methods: {
     toggle(index) {
-      this.faqs[index].isOpen = !this.faqs[index].isOpen;
+      this.openIndex = this.openIndex === index ? null : index;
+    },
+    // Transiciones fluidas con height dinámico
+    beforeEnter(el) {
+      el.style.maxHeight = '0';
+      el.style.opacity = '0';
+    },
+    enter(el) {
+      el.style.transition = 'all 0.5s ease';
+      el.style.maxHeight = el.scrollHeight + 'px';
+      el.style.opacity = '1';
+    },
+    beforeLeave(el) {
+      el.style.maxHeight = el.scrollHeight + 'px';
+      el.style.opacity = '1';
+    },
+    leave(el) {
+      el.style.transition = 'all 0.5s ease';
+      el.style.maxHeight = '0';
+      el.style.opacity = '0';
     }
   }
-}
+};
 </script>
 
 <style scoped>
 #sec-2 {
   box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.5);
-}
-
-/* Transición suave para las respuestas */
-.fade-enter-active, .fade-leave-active {
-  transition: all 0.5s ease;
-  overflow: hidden;
-}
-
-.fade-enter-from, .fade-leave-to {
-  max-height: 0;
-  opacity: 0;
-}
-
-.fade-enter-to, .fade-leave-from {
-  max-height: 500px; /* Ajusta según el contenido máximo esperado */
-  opacity: 1;
 }
 </style>
