@@ -1,27 +1,29 @@
 <template>
   <div id="sec-0" class="video-container relative w-full overflow-hidden bg-secondary">
-    <!-- Overlay con transición de opacidad -->
-    <div class="absolute inset-0 bg-secondary2 transition-opacity duration-1000" :style="overlayStyle"></div>
-
-    <!-- Video con transición -->
+    <!-- Video con transición suave -->
     <video
-      class="video w-full h-auto min-h-full min-w-full object-cover transition-opacity duration-1000"
-      :style="videoStyle"
+      ref="videoElement"
+      class="video w-full h-auto min-h-full min-w-full object-cover"
+      :style="{ opacity: videoOpacity, transition: 'opacity 1.5s ease-out' }"
       autoplay
       muted
       loop
       playsinline
-      preload="auto"
-      disablepictureinpicture
-      @loadeddata="handleVideoLoaded"
     >
       <source src="../assets/mc-video-hd.mp4" type="video/mp4" />
       {{ $t('parallax.noVideoSupport') }}
     </video>
 
-    <!-- Contenido de texto (sin cambios) -->
+    <!-- Overlay con transición sincronizada -->
+    <div 
+      class="absolute inset-0 bg-secondary2"
+      :style="{ opacity: overlayOpacity, transition: 'opacity 1.5s ease-out' }"
+    ></div>
+
+    <!-- Texto con transición retardada -->
     <div
-      class="haupt-ueberschrift absolute texto top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full px-4 text-center md:text-left responsive-left will-change-transform"
+      class="haupt-ueberschrift absolute texto top-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10 w-full px-4 text-center md:text-left responsive-left"
+      :style="{ opacity: textOpacity, transition: 'opacity 1.2s ease-out 0.6s' }"
     >
       <h1 class="text-white font-bold text-4xl -mt-20 sm:text-3xl sm:-mt-20 md:text-3xl md:mt-40 lg:text-4xl lg:-mt-18">
         {{ $t('parallax.title') }}
@@ -39,63 +41,46 @@ export default {
   name: 'ParallaxSection',
   data() {
     return {
-      isLoaded: false,
-      overlayOpacity: 0.7 // Mantenemos tu opacidad original
-    };
-  },
-  computed: {
-    videoStyle() {
-      return {
-        opacity: this.isLoaded ? 1 : 0
-      };
-    },
-    overlayStyle() {
-      return {
-        opacity: this.isLoaded ? this.overlayOpacity : 0
-      };
+      videoOpacity: 0,
+      overlayOpacity: 0,
+      textOpacity: 0
     }
   },
   mounted() {
-    this._raf = null;
-    this._lastScroll = 0;
-    window.addEventListener('scroll', this.handleScroll, { passive: true });
-    
-    // Precargar video
-    const video = document.querySelector('.video');
-    if (video) video.load();
+    // Transición para video y overlay (simultánea)
+    setTimeout(() => {
+      this.videoOpacity = 1
+      this.overlayOpacity = 0.7
+    }, 100)
+
+    // Transición para texto con retraso
+    setTimeout(() => {
+      this.textOpacity = 1
+    }, 700) // 700ms después que video/overlay
+
+    // Parallax original
+    window.addEventListener('scroll', this.handleScroll)
+    this.handleScroll()
   },
   beforeDestroy() {
-    if (this._raf) cancelAnimationFrame(this._raf);
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener('scroll', this.handleScroll)
   },
   methods: {
     handleScroll() {
-      if (this._raf) cancelAnimationFrame(this._raf);
-      this._raf = requestAnimationFrame(() => {
-        const texto = document.querySelector('.texto');
-        const scrollSpeed = 0.5;
-        const scrolled = window.scrollY;
-        
-        if (Math.abs(scrolled - this._lastScroll) > 1) {
-          if (texto) {
-            texto.style.transform = `translate(-50%, -50%) translateY(${scrolled * scrollSpeed}px)`;
-          }
-          this._lastScroll = scrolled;
-        }
-      });
-    },
-    handleVideoLoaded() {
-      // Esperar un frame más para asegurar que el video está listo
-      requestAnimationFrame(() => {
-        this.isLoaded = true;
-      });
+      const texto = document.querySelector('.texto')
+      const scrollSpeed = 0.5
+      const scrolled = window.scrollY
+
+      if (texto) {
+        texto.style.transform = `translate(-50%, -50%) translateY(${scrolled * scrollSpeed}px)`
+      }
     }
   }
-};
+}
 </script>
 
 <style scoped>
-/* Tus estilos originales SIN CAMBIOS */
+/* Todos tus estilos originales se mantienen EXACTAMENTE IGUAL */
 .responsive-left {
   left: 50%;
 }
@@ -135,20 +120,5 @@ export default {
     margin-bottom: 2rem;
     margin-top: 9rem;
   }
-}
-
-/* Solo añadimos estas propiedades para la transición */
-.video {
-  opacity: 0; /* Inicialmente invisible */
-  transition: opacity 1.5s ease-out; /* Transición más suave */
-}
-
-.bg-secondary2 {
-  transition: opacity 1.5s ease-out; /* Transición para el overlay */
-}
-
-.will-change-transform {
-  will-change: transform;
-  backface-visibility: hidden;
 }
 </style>
