@@ -21,7 +21,7 @@
                 <a
                   v-for="item in navigation"
                   :key="item.name"
-                  @click="scrollToSection(item.href)"
+                  @click.prevent="scrollToSection(item.href)"
                   class="cursor-pointer text-white hover:bg-secondary2 hover:text-white rounded-md px-2 py-1 text-sm font-medium"
                 >
                   {{ item.name }}
@@ -32,12 +32,11 @@
 
           <!-- Logo y selector de idioma -->
           <Menu as="div" class="relative ml-3 flex items-center gap-4">
-            <a href="index.html">
+            <a @click.prevent="scrollToSection('#sec-0')" class="cursor-pointer">
               <MenuButton>
                 <img class="logo" src="../assets/logo.png" alt="Logo" />
               </MenuButton>
             </a>
-
             <!-- Selector de idioma visible solo en pantallas grandes -->
             <div class="hidden sm:block">
               <LanguageSwitcher />
@@ -46,7 +45,7 @@
         </div>
       </div>
 
-      <!-- Menú móvil con transición más lenta y suave -->
+      <!-- Menú móvil -->
       <Transition
         enter-active-class="transition-all duration-1000 ease-in-out"
         enter-from-class="opacity-0 -translate-y-6 max-h-0"
@@ -61,9 +60,21 @@
               <div class="flex w-4/5 justify-between items-start relative">
                 <!-- Izquierda -->
                 <div class="flex flex-col space-y-2 items-start">
-                  <DisclosureButton as="a" href="#sec-0" class="text-base font-medium">{{ $t('nav.start') }}</DisclosureButton>
+                  <DisclosureButton 
+                    as="a" 
+                    @click.prevent="scrollToSection('#sec-0')" 
+                    class="text-base font-medium cursor-pointer"
+                  >
+                    {{ $t('nav.start') }}
+                  </DisclosureButton>
                   <div class="w-3/4 h-px bg-white/30 ml-1"></div>
-                  <DisclosureButton as="a" href="#sec-1" class="text-base font-medium">{{ $t('nav.service') }}</DisclosureButton>
+                  <DisclosureButton 
+                    as="a" 
+                    @click.prevent="scrollToSection('#sec-1')" 
+                    class="text-base font-medium cursor-pointer"
+                  >
+                    {{ $t('nav.service') }}
+                  </DisclosureButton>
                 </div>
 
                 <!-- Línea vertical -->
@@ -71,9 +82,21 @@
 
                 <!-- Derecha -->
                 <div class="flex flex-col space-y-2 items-end">
-                  <DisclosureButton as="a" href="#sec-2" class="text-base font-medium">{{ $t('nav.jobs') }}</DisclosureButton>
+                  <DisclosureButton 
+                    as="a" 
+                    @click.prevent="scrollToSection('#sec-2')" 
+                    class="text-base font-medium cursor-pointer"
+                  >
+                    {{ $t('nav.jobs') }}
+                  </DisclosureButton>
                   <div class="w-3/4 h-px bg-white/30 mr-1 self-end"></div>
-                  <DisclosureButton as="a" href="#sec-3" class="text-base font-medium">{{ $t('nav.about') }}</DisclosureButton>
+                  <DisclosureButton 
+                    as="a" 
+                    @click.prevent="scrollToSection('#sec-3')" 
+                    class="text-base font-medium cursor-pointer"
+                  >
+                    {{ $t('nav.about') }}
+                  </DisclosureButton>
                 </div>
               </div>
             </div>
@@ -82,7 +105,11 @@
             <div class="h-px bg-white/30 w-2/3 my-2"></div>
 
             <!-- Kontakt -->
-            <DisclosureButton as="a" href="#sec-4" class="text-base font-medium">
+            <DisclosureButton 
+              as="a" 
+              @click.prevent="scrollToSection('#sec-4')" 
+              class="text-base font-medium cursor-pointer"
+            >
               {{ $t('nav.contact') }}
             </DisclosureButton>
           </div>
@@ -115,14 +142,55 @@ const navigation = computed(() => [
   { name: t('nav.contact'), href: '#sec-4' }
 ])
 
+const isScrolled = ref(false)
+const headerHeight = 70 // Altura aproximada de tu header
+
+// Función mejorada de scroll suave
 const scrollToSection = (sectionId) => {
   const section = document.querySelector(sectionId)
   if (section) {
-    section.scrollIntoView({ behavior: 'smooth' })
+    // Calcular posición con offset para el header
+    const sectionPosition = section.getBoundingClientRect().top + window.pageYOffset
+    const offsetPosition = sectionPosition - headerHeight
+
+    // Animación personalizada para mayor suavidad
+    const startPosition = window.pageYOffset
+    const distance = offsetPosition - startPosition
+    const duration = 800 // Duración en ms
+    let startTime = null
+
+    const easeInOutQuad = (t) => {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t
+    }
+
+    const animation = (currentTime) => {
+      if (!startTime) startTime = currentTime
+      const timeElapsed = currentTime - startTime
+      const progress = Math.min(timeElapsed / duration, 1)
+      const easeProgress = easeInOutQuad(progress)
+      
+      window.scrollTo(0, startPosition + distance * easeProgress)
+      
+      if (timeElapsed < duration) {
+        window.requestAnimationFrame(animation)
+      } else {
+        // Actualizar el hash después de completar el scroll
+        history.pushState(null, null, sectionId)
+      }
+    }
+
+    window.requestAnimationFrame(animation)
   }
 }
 
-const isScrolled = ref(false)
+// Manejar navegación inicial si hay hash en la URL
+const handleInitialHash = () => {
+  if (window.location.hash) {
+    setTimeout(() => {
+      scrollToSection(window.location.hash)
+    }, 100) // Pequeño delay para asegurar que el DOM está listo
+  }
+}
 
 const handleScroll = () => {
   isScrolled.value = window.scrollY > 50
@@ -130,10 +198,19 @@ const handleScroll = () => {
 
 onMounted(() => {
   window.addEventListener('scroll', handleScroll)
+  handleInitialHash()
+  
+  // Escuchar cambios de hash (navegación manual)
+  window.addEventListener('hashchange', () => {
+    if (window.location.hash) {
+      scrollToSection(window.location.hash)
+    }
+  })
 })
 
 onUnmounted(() => {
   window.removeEventListener('scroll', handleScroll)
+  window.removeEventListener('hashchange', handleInitialHash)
 })
 </script>
 
@@ -147,7 +224,6 @@ onUnmounted(() => {
   transition: background-color 0.8s ease-in-out;
 }
 
-/* Clase que activa la opacidad suave */
 .bg-visible {
   background-color: rgba(49, 61, 76, 0.95);
 }
@@ -156,5 +232,14 @@ onUnmounted(() => {
   width: 80px;
   height: auto;
   margin-top: 1rem;
+  transition: transform 0.3s ease;
+}
+
+.logo:hover {
+  transform: scale(1.05);
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 </style>

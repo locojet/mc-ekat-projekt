@@ -74,7 +74,7 @@ onMounted(() => {
     <Jobs />
     <About />
     <CallMail />
-    <Formular />
+    
     <Footer />
   </div>
 </template>

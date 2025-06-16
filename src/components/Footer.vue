@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-around text-start">
 
       <!-- Kontakt -->
-      <div class="mb-6 pl-4 w-full md:w-1/3">
+      <div id="sec-4" class="mb-6 pl-4 w-full md:w-1/3">
         <button @click="toggleSection('kontakt')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.kontakt.title') }}
         </button>
@@ -68,13 +68,56 @@ export default {
   data() {
     return {
       activeSection: null,
+      observer: null
     };
   },
   methods: {
     toggleSection(section) {
       this.activeSection = this.activeSection === section ? null : section;
     },
+    handleIntersection(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.id === 'sec-4') {
+          this.activeSection = 'kontakt';
+        }
+      });
+    },
+    setupObserver() {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      this.observer = new IntersectionObserver(this.handleIntersection, options);
+      const target = document.getElementById('sec-4');
+      if (target) {
+        this.observer.observe(target);
+      }
+    }
   },
+  mounted() {
+    // Comprobar hash al cargar
+    if (window.location.hash === '#sec-4') {
+      this.activeSection = 'kontakt';
+    }
+
+    // Configurar IntersectionObserver
+    this.setupObserver();
+
+    // Escuchar cambios de hash
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '#sec-4') {
+        this.activeSection = 'kontakt';
+      }
+    });
+  },
+  beforeDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+    window.removeEventListener('hashchange', this.handleHashChange);
+  }
 };
 </script>
 
