@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-around text-start">
 
       <!-- Kontakt -->
-      <div id="sec-4" class="mb-6 pl-4 w-full md:w-1/3">
+      <div id="kontakt" class="mb-6 pl-4 w-full md:w-1/3">
         <button @click="toggleSection('kontakt')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.kontakt.title') }}
         </button>
@@ -33,7 +33,7 @@
       </div>
 
       <!-- Impressum -->
-      <div class="mb-6 pl-4 w-full md:w-1/3">
+      <div id="impressum" class="mb-6 pl-4 w-full md:w-1/3">
         <button @click="toggleSection('impressum')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.impressum.title') }}
         </button>
@@ -43,7 +43,7 @@
       </div>
 
       <!-- Datenschutz -->
-      <div class="mb-6 pl-4 w-full md:w-1/3">
+      <div id="datenschutz" class="mb-6 pl-4 w-full md:w-1/3">
         <button @click="toggleSection('datenschutz')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.datenschutz.title') }}
         </button>
@@ -71,23 +71,29 @@ export default {
   },
   methods: {
     toggleSection(section) {
-      this.activeSection = this.activeSection === section ? null : section
+      if (this.activeSection === section) {
+        this.activeSection = null
+        if (window.location.hash === `#${section}`) {
+          history.replaceState(null, null, ' ')
+        }
+      } else {
+        this.activeSection = section
+        window.location.hash = section
+      }
     },
-    handleHashChange() {
-      if (window.location.hash === '#sec-4') {
-        this.activeSection = 'kontakt'
+    checkHash() {
+      const hash = window.location.hash.substring(1)
+      if (['kontakt', 'impressum', 'datenschutz'].includes(hash)) {
+        this.activeSection = hash
       }
     }
   },
   mounted() {
-    // Verificar hash inicial
-    this.handleHashChange()
-    
-    // Escuchar cambios de hash
-    window.addEventListener('hashchange', this.handleHashChange)
+    this.checkHash()
+    window.addEventListener('hashchange', this.checkHash)
   },
   beforeDestroy() {
-    window.removeEventListener('hashchange', this.handleHashChange)
+    window.removeEventListener('hashchange', this.checkHash)
   }
 }
 </script>
