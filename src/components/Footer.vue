@@ -2,60 +2,65 @@
   <footer class="bg-secondary2 text-white py-8 px-4 w-full">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-around text-start">
 
-      <!-- Kontakt -->
-      <div id="sec-4" class="mb-6 pl-4 w-full md:w-1/3">
-        <button @click="toggleSection('kontakt')" class="font-bold w-full text-left md:text-center">
+      <!-- Kontakt (siempre visible) -->
+      <div id="contact-section" class="mb-6 pl-4 w-full md:w-1/3">
+        <h3 class="font-bold w-full text-left md:text-center">
           {{ $t('footer.kontakt.title') }}
-        </button>
-        <transition name="fade">
-          <div v-if="activeSection === 'kontakt'" class="mt-2">
-            <p>
-              <strong>{{ $t('footer.kontakt.company') }}</strong><br>
-              {{ $t('footer.kontakt.address1') }}<br>
-              {{ $t('footer.kontakt.phone1') }}<br>
-              {{ $t('footer.kontakt.fax1') }}<br>
-              {{ $t('footer.kontakt.mobile1') }}<br><br>
+        </h3>
+        <div class="mt-2">
+          <p>
+            <strong>{{ $t('footer.kontakt.company') }}</strong><br>
+            {{ $t('footer.kontakt.address1') }}<br>
+            {{ $t('footer.kontakt.phone1') }}<br>
+            {{ $t('footer.kontakt.fax1') }}<br>
+            {{ $t('footer.kontakt.mobile1') }}<br><br>
 
-              {{ $t('footer.kontakt.address2') }}<br>
-              {{ $t('footer.kontakt.phone2') }}<br>
-              {{ $t('footer.kontakt.fax2') }}<br>
-              {{ $t('footer.kontakt.mobile2') }}
-            </p>
+            {{ $t('footer.kontakt.address2') }}<br>
+            {{ $t('footer.kontakt.phone2') }}<br>
+            {{ $t('footer.kontakt.fax2') }}<br>
+            {{ $t('footer.kontakt.mobile2') }}
+          </p>
 
-            <p>
-              {{ $t('footer.kontakt.email') }}: 
-              <a href="mailto:info@mcekat.de" class="underline">info@mcekat.de</a><br>
-              {{ $t('footer.kontakt.web') }}: 
-              <a href="http://www.mcekat.de" target="_blank" rel="noopener noreferrer" class="underline">www.mcekat.de</a>
-            </p>
-          </div>
-        </transition>
+          <p class="mt-4">
+            {{ $t('footer.kontakt.email') }}: 
+            <a href="mailto:info@mcekat.de" class="underline hover:text-gray-300">info@mcekat.de</a><br>
+            {{ $t('footer.kontakt.web') }}: 
+            <a href="https://www.mcekat.de" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-300">www.mcekat.de</a>
+          </p>
+        </div>
       </div>
 
-      <!-- Impressum -->
+      <!-- Impressum (acordeón) -->
       <div class="mb-6 pl-4 w-full md:w-1/3">
-        <button @click="toggleSection('impressum')" class="font-bold w-full text-left md:text-center">
+        <button 
+          @click="toggleSection('impressum')" 
+          class="font-bold w-full text-left md:text-center"
+          :aria-expanded="activeSection === 'impressum'"
+        >
           {{ $t('footer.impressum.title') }}
         </button>
         <transition name="fade">
-          <div v-if="activeSection === 'impressum'" class="mt-2" v-html="$t('footer.impressum.content')"></div>
+          <div v-if="activeSection === 'impressum'" class="mt-2 prose text-white prose-a:text-white prose-a:underline" v-html="$t('footer.impressum.content')"></div>
         </transition>
       </div>
 
-      <!-- Datenschutz -->
+      <!-- Datenschutz (acordeón) -->
       <div class="mb-6 pl-4 w-full md:w-1/3">
-        <button @click="toggleSection('datenschutz')" class="font-bold w-full text-left md:text-center">
+        <button 
+          @click="toggleSection('datenschutz')" 
+          class="font-bold w-full text-left md:text-center"
+          :aria-expanded="activeSection === 'datenschutz'"
+        >
           {{ $t('footer.datenschutz.title') }}
         </button>
         <transition name="fade">
-          <div v-if="activeSection === 'datenschutz'" class="mt-2" v-html="$t('footer.datenschutz.privacyPolicy')"></div>
+          <div v-if="activeSection === 'datenschutz'" class="mt-2 prose text-white prose-a:text-white prose-a:underline" v-html="$t('footer.datenschutz.privacyPolicy')"></div>
         </transition>
       </div>
-
     </div>
 
-    <div class="mt-4">
-      <p class="text-center">
+    <div class="mt-8 pt-4 border-t border-gray-600">
+      <p class="text-center text-sm">
         © {{ new Date().getFullYear() }} m-c-EKAT Verschleißschutz & Reparatur GmbH. {{ $t('footer.rights_reserved') }}
       </p>
     </div>
@@ -64,90 +69,68 @@
 
 <script>
 export default {
-  name: 'FooterComponent',
+  name: 'AppFooter',
   data() {
     return {
-      activeSection: null,
-      observer: null
-    };
+      activeSection: null
+    }
   },
   methods: {
     toggleSection(section) {
-      this.activeSection = this.activeSection === section ? null : section;
+      this.activeSection = this.activeSection === section ? null : section
+      // Actualizar URL sin recargar
+      const newUrl = this.activeSection ? `${window.location.pathname}#${section}` : window.location.pathname
+      window.history.replaceState({}, '', newUrl)
     },
-    handleIntersection(entries) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && entry.target.id === 'sec-4') {
-          this.activeSection = 'kontakt';
-        }
-      });
-    },
-    setupObserver() {
-      const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      };
-
-      this.observer = new IntersectionObserver(this.handleIntersection, options);
-      const target = document.getElementById('sec-4');
-      if (target) {
-        this.observer.observe(target);
+    checkHash() {
+      const hash = window.location.hash.substring(1)
+      if (['impressum', 'datenschutz'].includes(hash)) {
+        this.activeSection = hash
       }
     }
   },
   mounted() {
-    // Comprobar hash al cargar
-    if (window.location.hash === '#sec-4') {
-      this.activeSection = 'kontakt';
-    }
-
-    // Configurar IntersectionObserver
-    this.setupObserver();
-
-    // Escuchar cambios de hash
-    window.addEventListener('hashchange', () => {
-      if (window.location.hash === '#sec-4') {
-        this.activeSection = 'kontakt';
-      }
-    });
+    this.checkHash()
+    window.addEventListener('hashchange', this.checkHash)
   },
   beforeDestroy() {
-    if (this.observer) {
-      this.observer.disconnect();
-    }
-    window.removeEventListener('hashchange', this.handleHashChange);
+    window.removeEventListener('hashchange', this.checkHash)
   }
-};
+}
 </script>
 
 <style scoped>
-footer button {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
-  padding: 0.5rem;
-  text-align: left;
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
 }
-footer button:hover {
-  color: #a0aec0;
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter, .fade-leave-to {
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
-a {
-  color: #ffffff;
+
+button {
+  transition: color 0.2s ease;
+  outline: none;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
 }
-a.underline:hover {
-  text-decoration: underline;
+button:hover {
+  color: #cbd5e0;
 }
-@media (min-width: 768px) {
-  footer button {
-    text-align: center;
-  }
+
+.prose a:hover {
+  color: #cbd5e0;
+  text-decoration-thickness: 2px;
+}
+
+/* Estilo para la sección de contacto fija */
+#contact-section {
+  border-right: 1px solid rgba(255,255,255,0.1);
+  padding-right: 1rem;
 }
 </style>
