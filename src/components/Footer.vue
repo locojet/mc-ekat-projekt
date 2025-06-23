@@ -3,7 +3,7 @@
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-around text-start">
 
       <!-- Kontakt -->
-      <div id="kontakt" class="mb-6 pl-4 w-full md:w-1/3">
+      <div id="sec-4" class="mb-6 pl-4 w-full md:w-1/3">
         <button @click="toggleSection('kontakt')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.kontakt.title') }}
         </button>
@@ -22,39 +22,40 @@
               {{ $t('footer.kontakt.mobile2') }}
             </p>
 
-            <p class="mt-4">
+            <p>
               {{ $t('footer.kontakt.email') }}: 
-              <a href="mailto:info@mcekat.de" class="underline hover:text-gray-300">info@mcekat.de</a><br>
+              <a href="mailto:info@mcekat.de" class="underline">info@mcekat.de</a><br>
               {{ $t('footer.kontakt.web') }}: 
-              <a href="https://www.mcekat.de" target="_blank" rel="noopener noreferrer" class="underline hover:text-gray-300">www.mcekat.de</a>
+              <a href="http://www.mcekat.de" target="_blank" rel="noopener noreferrer" class="underline">www.mcekat.de</a>
             </p>
           </div>
         </transition>
       </div>
 
       <!-- Impressum -->
-      <div id="impressum" class="mb-6 pl-4 w-full md:w-1/3">
+      <div class="mb-6 pl-4 w-full md:w-1/3">
         <button @click="toggleSection('impressum')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.impressum.title') }}
         </button>
         <transition name="fade">
-          <div v-if="activeSection === 'impressum'" class="mt-2 prose text-white prose-a:text-white prose-a:underline" v-html="$t('footer.impressum.content')"></div>
+          <div v-if="activeSection === 'impressum'" class="mt-2" v-html="$t('footer.impressum.content')"></div>
         </transition>
       </div>
 
       <!-- Datenschutz -->
-      <div id="datenschutz" class="mb-6 pl-4 w-full md:w-1/3">
+      <div class="mb-6 pl-4 w-full md:w-1/3">
         <button @click="toggleSection('datenschutz')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.datenschutz.title') }}
         </button>
         <transition name="fade">
-          <div v-if="activeSection === 'datenschutz'" class="mt-2 prose text-white prose-a:text-white prose-a:underline" v-html="$t('footer.datenschutz.privacyPolicy')"></div>
+          <div v-if="activeSection === 'datenschutz'" class="mt-2" v-html="$t('footer.datenschutz.privacyPolicy')"></div>
         </transition>
       </div>
+
     </div>
 
-    <div class="mt-8 pt-4 border-t border-gray-600">
-      <p class="text-center text-sm">
+    <div class="mt-4">
+      <p class="text-center">
         © {{ new Date().getFullYear() }} m-c-EKAT Verschleißschutz & Reparatur GmbH. {{ $t('footer.rights_reserved') }}
       </p>
     </div>
@@ -63,61 +64,90 @@
 
 <script>
 export default {
-  name: 'AppFooter',
+  name: 'FooterComponent',
   data() {
     return {
-      activeSection: null
-    }
+      activeSection: null,
+      observer: null
+    };
   },
   methods: {
     toggleSection(section) {
-      if (this.activeSection === section) {
-        this.activeSection = null
-        if (window.location.hash === `#${section}`) {
-          history.replaceState(null, null, ' ')
-        }
-      } else {
-        this.activeSection = section
-        window.location.hash = section
-      }
+      this.activeSection = this.activeSection === section ? null : section;
     },
-    checkHash() {
-      const hash = window.location.hash.substring(1)
-      if (['kontakt', 'impressum', 'datenschutz'].includes(hash)) {
-        this.activeSection = hash
+    handleIntersection(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.id === 'sec-4') {
+          this.activeSection = 'kontakt';
+        }
+      });
+    },
+    setupObserver() {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      this.observer = new IntersectionObserver(this.handleIntersection, options);
+      const target = document.getElementById('sec-4');
+      if (target) {
+        this.observer.observe(target);
       }
     }
   },
   mounted() {
-    this.checkHash()
-    window.addEventListener('hashchange', this.checkHash)
+    // Comprobar hash al cargar
+    if (window.location.hash === '#sec-4') {
+      this.activeSection = 'kontakt';
+    }
+
+    // Configurar IntersectionObserver
+    this.setupObserver();
+
+    // Escuchar cambios de hash
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '#sec-4') {
+        this.activeSection = 'kontakt';
+      }
+    });
   },
   beforeDestroy() {
-    window.removeEventListener('hashchange', this.checkHash)
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+    window.removeEventListener('hashchange', this.handleHashChange);
   }
-}
+};
 </script>
 
 <style scoped>
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 0.3s ease;
+footer button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  padding: 0.5rem;
+  text-align: left;
 }
-.fade-enter-from,
-.fade-leave-to {
+footer button:hover {
+  color: #a0aec0;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
   opacity: 0;
 }
-
-button {
-  transition: color 0.2s ease;
-  outline: none;
+a {
+  color: #ffffff;
 }
-button:hover {
-  color: #cbd5e0;
+a.underline:hover {
+  text-decoration: underline;
 }
-
-.prose a:hover {
-  color: #cbd5e0;
-  text-decoration-thickness: 2px;
+@media (min-width: 768px) {
+  footer button {
+    text-align: center;
+  }
 }
 </style>
