@@ -108,74 +108,68 @@
 
               
               
+              
                 "footer": {
                   "kontakt": {
                     "title": "Contact",
-                    "company": "m-c-EKAT Verschleißschutz & Reparatur GmbH.",
+                    "company": "m-c-EKAT Verschleißschutz & Reparatur GmbH",
                     "address1": "Heidmühlenweg 48a, D-25336 Elmshorn",
-                    "phone1": "Phone: +49 (0) 4121 57 92 54",
-                    "fax1": "Fax: +49 (0) 4121 57 92 56",
-                    "mobile1": "Mobile: +49 (0) 173 600 32 64",
-                    "address2": "Kaltenhöfer Weg 1c, D-23999 Insel Poel",
-                    "phone2": "Phone: +49 (0) 38425 425 07",
-                    "fax2": "Fax: +49 (0) 38425 425 08",
-                    "mobile2": "Mobile: +49 (0) 173 237 15 91",
+                    "phone1": "Phone: +49 (0) 4121 476 99 0",
+                    "fax1": "Fax: +49 (0) 4121 476 99 29",
+                    "mobile1": "Mobile: +49 (0) 172 433 22 10",
+                    "address2": "Kaltenhoefer Weg 1c, D-23999 Kirchdorf/Poel",
+                    "phone2": "Phone: +49 (0) 38425 224 99 0",
+                    "fax2": "Fax: +49 (0) 38425 224 99 29",
+                    "mobile2": "Mobile: +49 (0) 172 433 22 11",
                     "email": "Email",
-                    "web": "Website"
+                    "web": "Web"
                   },
                   "impressum": {
-                    "title": "Imprint",
-                    "content": "Information according to § 5 TMG: m-c-EKAT Verschleißschutz & Reparatur GmbH., Heidmühlenweg 48a, D-25336 Elmshorn, Kaltenhöfer Weg 1c, D-23999 Kirchdorf/Poel, Registration court: Pinneberg District Court, Commercial register: HRB 2315 EL, VAT ID No.: DE 230 119 681 (according to § 27 a VAT Act), Managing Directors: Mathias Ekat, Christian Ekat, Internet: info@mcekat.de, Responsible for content according to § 55 Abs. 2 RStV: Christian Ekat, Kaltenhöfer Weg 1c, 23999 Insel Poel, Note on EU dispute resolution: The European Commission provides a platform for online dispute resolution (ODR): http://ec.europa.eu/consumers/odr, Our e-mail address can be found in the imprint above.",
-                    "disclaimerTitle": "Disclaimer",
-                    "disclaimerContent": "Liability for content: As service providers, we are responsible for our own content on these pages according to general laws in accordance with § 7 Abs.1 TMG..."
+                    "title": "Legal Notice",
+                    "content": "<strong>Legal Notice according to § 5 TMG:</strong><br>m-c-EKAT Verschleißschutz & Reparatur GmbH<br>Heidmühlenweg 48a, D-25336 Elmshorn<br>Kaltenhoefer Weg 1c, D-23999 Kirchdorf/Poel<br><br><strong>Register Court:</strong> Amtsgericht Pinneberg<br><strong>Commercial Register:</strong> HRB 2315 EL<br><strong>VAT ID No.:</strong> DE 230 119 681 (according to § 27 a VAT Act)<br><br><strong>Managing Directors:</strong> Mathias Ekat, Christian Ekat<br><strong>Email:</strong> info@mcekat.de<br><br><strong>Content Responsibility according to § 55 Abs. 2 RStV:</strong><br>Christian Ekat, Kaltenhöfer Weg 1c, 23999 Insel Poel<br><br><strong>EU Dispute Resolution:</strong><br>The European Commission provides a platform for online dispute resolution (OS): <a href='http://ec.europa.eu/consumers/odr' target='_blank' rel='noopener noreferrer'>http://ec.europa.eu/consumers/odr</a><br>Our email address can be found above in the legal notice."
                   },
                   "datenschutz": {
                     "title": "Privacy Policy",
-                    "privacyPolicy": "Privacy statement: Protecting and securing the data you provide and its confidentiality is very important to us. We only process personal data within the framework of legal regulations. For more details, please see our full privacy policy on the website.",
-                    "responsible": "Responsible entity: m-c-EKAT Verschleißschutz & Reparatur GmbH., Christian Ekat, Heidmühlenweg 48a, D-235336 Elmshorn",
-                    "security": "Security and protection of personal data: Protecting and securing the data you provide and its confidentiality is very important to us...",
-                    "lawfulness": "Lawfulness of processing: The processing of personal data is only lawful if there is a legal basis for the processing...",
-                    "withdrawal": "Withdrawal of your consent to data processing: Some data processing operations are only possible with your explicit consent...",
-                    "complaint": "Right to complain to the competent supervisory authority: As a data subject, you have the right to complain in the event of a data protection violation...",
-                    "rights": "Right to information, correction, blocking, deletion: According to legal provisions, you have the right at any time to receive free information...",
-                    "objection": "Right to object: You have the right, for reasons arising from your particular situation, to object at any time to the processing of personal data concerning you...",
-                    "serverLogs": "Server log files: The provider of the pages automatically collects and stores information in so-called server log files...",
-                    "cookies": "Cookies: The website partially uses so-called cookies...",
-                    "links": "Links: This privacy policy does not extend to external links provided on our website...",
-                    "spamObjection": "Objection to advertising emails: The use of contact data published in accordance with the imprint obligation for sending unsolicited advertising is hereby objected to."
+                    "privacyPolicy": "<strong>Responsible entity:</strong><br>m-c-EKAT Verschleißschutz & Reparatur GmbH<br>Christian Ekat<br>Heidmühlenweg 48a<br>D-25336 Elmshorn<br><br><strong>Data Security:</strong><br>We prioritize the protection of your personal data and comply with the EU General Data Protection Regulation (GDPR) and the German Federal Data Protection Act (BDSG).<br><br><strong>Your Rights:</strong><br>You have the right to access, correct, block or delete your stored data. Contact us at any time via the details in the legal notice.<br><br><strong>Server Logs:</strong><br>Our provider automatically collects: browser type/version, OS, referrer URL, hostname, and time of server request.<br><br><strong>Cookies:</strong><br>This website uses cookies to improve user experience. You can configure your browser to reject cookies."
                   },
-                  "rights_reserved": "All rights reserved."
+                  "rights_reserved": "All rights reserved"
                 },
+              
 
 
                
+                
+                
+                
                   "cookiePopup": {
-                    "title": "Cookies & Privacy",
+                    "title": "🍪 Cookies & Privacy",
                     "message": "This site uses cookies to improve your experience. Do you accept them?",
-                    "infoLink": "/cookies-info.html",
                     "moreInfo": "More information",
                     "accept": "Accept",
-                    "reject": "Reject"
+                    "reject": "Reject",
+                    "policy": {
+                      "title": "Cookie Policy",
+                      "intro": "Our website uses cookies to enhance your user experience and provide certain functionality. Cookies are small text files stored on your device.",
+                      "typesTitle": "Which cookies do we use?",
+                      "types": {
+                        "necessary": "Technically necessary cookies: Required for the website to function properly.",
+                        "analytics": "Analytics cookies: Help us understand user behavior (e.g. Google Analytics).",
+                        "marketing": "Marketing cookies: Enable personalized advertising."
+                      },
+                      "controlTitle": "How can you control cookies?",
+                      "control": "You can change your cookie settings in your browser or delete stored cookies at any time. For more information, see your browser's help section.",
+                      "privacyTitle": "Data Protection",
+                      "privacyText": "We process your data in accordance with GDPR. All data is treated confidentially and not shared with third parties except when necessary to provide our services.",
+                      "contactText": "If you have questions, please contact us at"
+                    }
                   },
+                
 
-                  
-                    "cookieDetails": {
-                      "detailsTitle": "Details about Cookies and Data Protection",
-                      "intro": "We use cookies to optimize user experience, analyze site usage, and personalize content and ads.",
-                  
-                      "essentialTitle": "Essential Cookies",
-                      "essentialText": "These cookies are necessary for the website to function properly and cannot be disabled.",
-                  
-                      "statsTitle": "Statistics Cookies",
-                      "statsText": "These cookies help us understand how visitors interact with the website by collecting anonymous information.",
-                  
-                      "marketingTitle": "Marketing Cookies",
-                      "marketingText": "Used to track visitors across websites to display relevant and engaging ads.",
-                  
-                      "privacyTitle": "Data Protection (Datenschutz)",
-                      "privacyText": "We take your personal data protection seriously. Please refer to our privacy policy for more details.",
-                  
-                      "close": "Close"
+                    
+                      "contact": {
+                        "email": "E-Mail",
+                        "call": "Call"
+                      
                     }
                  
                   

@@ -28,6 +28,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@use 'sass:list';
+
 $colors: #4F627A, #4F627A, #4F627A, #4F627A;
 
 .page-loader {
@@ -45,7 +47,7 @@ $colors: #4F627A, #4F627A, #4F627A, #4F627A;
 }
 
 .loader-logo {
-  width: 90px; // logo más pequeño (doble de pequeño)
+  width: 90px;
   height: auto;
   margin-bottom: 30px;
 }
@@ -62,9 +64,9 @@ $colors: #4F627A, #4F627A, #4F627A, #4F627A;
   margin-right: 10px;
   border-radius: 50%;
 
-  @for $i from 1 through length($colors) {
+  @for $i from 1 through list.length($colors) {
     &:nth-child(#{$i}) {
-      background-color: nth($colors, $i);
+      background-color: list.nth($colors, $i);
     }
   }
 
