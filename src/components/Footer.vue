@@ -2,37 +2,35 @@
   <footer class="bg-secondary2 text-white py-8 px-4 w-full">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-around text-start">
 
-      <!-- Kontakt -->
+      <!-- Kontakt (siempre visible) -->
       <div id="sec-4" class="mb-6 pl-4 w-full md:w-1/3">
-        <button @click="toggleSection('kontakt')" class="font-bold w-full text-left md:text-center">
+        <h3 class="font-bold w-full text-left md:text-center mb-2">
           {{ $t('footer.kontakt.title') }}
-        </button>
-        <transition name="fade">
-          <div v-if="activeSection === 'kontakt'" class="mt-2">
-            <p>
-              <strong>{{ $t('footer.kontakt.company') }}</strong><br>
-              {{ $t('footer.kontakt.address1') }}<br>
-              {{ $t('footer.kontakt.phone1') }}<br>
-              {{ $t('footer.kontakt.fax1') }}<br>
-              {{ $t('footer.kontakt.mobile1') }}<br><br>
+        </h3>
+        <div class="mt-2">
+          <p>
+            <strong>{{ $t('footer.kontakt.company') }}</strong><br>
+            {{ $t('footer.kontakt.address1') }}<br>
+            {{ $t('footer.kontakt.phone1') }}<br>
+            {{ $t('footer.kontakt.fax1') }}<br>
+            {{ $t('footer.kontakt.mobile1') }}<br><br>
 
-              {{ $t('footer.kontakt.address2') }}<br>
-              {{ $t('footer.kontakt.phone2') }}<br>
-              {{ $t('footer.kontakt.fax2') }}<br>
-              {{ $t('footer.kontakt.mobile2') }}
-            </p>
+            {{ $t('footer.kontakt.address2') }}<br>
+            {{ $t('footer.kontakt.phone2') }}<br>
+            {{ $t('footer.kontakt.fax2') }}<br>
+            {{ $t('footer.kontakt.mobile2') }}
+          </p>
 
-            <p>
-              {{ $t('footer.kontakt.email') }}: 
-              <a href="mailto:info@mcekat.de" class="underline">info@mcekat.de</a><br>
-              {{ $t('footer.kontakt.web') }}: 
-              <a href="http://www.mcekat.de" target="_blank" rel="noopener noreferrer" class="underline">www.mcekat.de</a>
-            </p>
-          </div>
-        </transition>
+          <p>
+            {{ $t('footer.kontakt.email') }}: 
+            <a href="mailto:info@mcekat.de" class="underline">info@mcekat.de</a><br>
+            {{ $t('footer.kontakt.web') }}: 
+            <a href="http://www.mcekat.de" target="_blank" rel="noopener noreferrer" class="underline">www.mcekat.de</a>
+          </p>
+        </div>
       </div>
 
-      <!-- Impressum -->
+      <!-- Impressum (con toggle) -->
       <div class="mb-6 pl-4 w-full md:w-1/3">
         <button @click="toggleSection('impressum')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.impressum.title') }}
@@ -42,7 +40,7 @@
         </transition>
       </div>
 
-      <!-- Datenschutz -->
+      <!-- Datenschutz (con toggle) -->
       <div class="mb-6 pl-4 w-full md:w-1/3">
         <button @click="toggleSection('datenschutz')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.datenschutz.title') }}
@@ -67,56 +65,23 @@ export default {
   name: 'FooterComponent',
   data() {
     return {
-      activeSection: null,
-      observer: null
+      activeSection: null
     };
   },
   methods: {
     toggleSection(section) {
       this.activeSection = this.activeSection === section ? null : section;
-    },
-    handleIntersection(entries) {
-      entries.forEach(entry => {
-        if (entry.isIntersecting && entry.target.id === 'sec-4') {
-          this.activeSection = 'kontakt';
-        }
-      });
-    },
-    setupObserver() {
-      const options = {
-        root: null,
-        rootMargin: '0px',
-        threshold: 0.1
-      };
-
-      this.observer = new IntersectionObserver(this.handleIntersection, options);
-      const target = document.getElementById('sec-4');
-      if (target) {
-        this.observer.observe(target);
-      }
     }
   },
   mounted() {
     // Comprobar hash al cargar
     if (window.location.hash === '#sec-4') {
-      this.activeSection = 'kontakt';
-    }
-
-    // Configurar IntersectionObserver
-    this.setupObserver();
-
-    // Escuchar cambios de hash
-    window.addEventListener('hashchange', () => {
-      if (window.location.hash === '#sec-4') {
-        this.activeSection = 'kontakt';
+      // Hacer scroll suave al contacto si hay hash
+      const element = document.getElementById('sec-4');
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
-    });
-  },
-  beforeDestroy() {
-    if (this.observer) {
-      this.observer.disconnect();
     }
-    window.removeEventListener('hashchange', this.handleHashChange);
   }
 };
 </script>
