@@ -30,24 +30,26 @@
         </div>
       </div>
 
-      <!-- Impressum (con toggle) -->
+      <!-- Impressum (con despliegue simple) -->
       <div class="mb-6 pl-4 w-full md:w-1/3">
-        <button @click="toggleSection('impressum')" class="font-bold w-full text-left md:text-center">
+        <button @click="toggleImpressum" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.impressum.title') }}
+          <span class="float-right md:float-none">{{ impressumVisible ? '−' : '+' }}</span>
         </button>
-        <transition name="fade">
-          <div v-if="activeSection === 'impressum'" class="mt-2" v-html="$t('footer.impressum.content')"></div>
-        </transition>
+        <div v-show="impressumVisible" class="mt-2 impressum-content">
+          <div v-html="$t('footer.impressum.content')"></div>
+        </div>
       </div>
 
-      <!-- Datenschutz (con toggle) -->
+      <!-- Datenschutz (con despliegue simple) -->
       <div class="mb-6 pl-4 w-full md:w-1/3">
-        <button @click="toggleSection('datenschutz')" class="font-bold w-full text-left md:text-center">
+        <button @click="toggleDatenschutz" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.datenschutz.title') }}
+          <span class="float-right md:float-none">{{ datenschutzVisible ? '−' : '+' }}</span>
         </button>
-        <transition name="fade">
-          <div v-if="activeSection === 'datenschutz'" class="mt-2" v-html="$t('footer.datenschutz.privacyPolicy')"></div>
-        </transition>
+        <div v-show="datenschutzVisible" class="mt-2 datenschutz-content">
+          <div v-html="$t('footer.datenschutz.privacyPolicy')"></div>
+        </div>
       </div>
 
     </div>
@@ -65,18 +67,29 @@ export default {
   name: 'FooterComponent',
   data() {
     return {
-      activeSection: null
+      impressumVisible: false,
+      datenschutzVisible: false
     };
   },
   methods: {
-    toggleSection(section) {
-      this.activeSection = this.activeSection === section ? null : section;
+    toggleImpressum() {
+      this.impressumVisible = !this.impressumVisible;
+      // Cierra Datenschutz si Impressum se abre
+      if (this.impressumVisible) {
+        this.datenschutzVisible = false;
+      }
+    },
+    toggleDatenschutz() {
+      this.datenschutzVisible = !this.datenschutzVisible;
+      // Cierra Impressum si Datenschutz se abre
+      if (this.datenschutzVisible) {
+        this.impressumVisible = false;
+      }
     }
   },
   mounted() {
-    // Comprobar hash al cargar
+    // Scroll a contacto si hay hash en la URL
     if (window.location.hash === '#sec-4') {
-      // Hacer scroll suave al contacto si hay hash
       const element = document.getElementById('sec-4');
       if (element) {
         element.scrollIntoView({ behavior: 'smooth' });
@@ -94,21 +107,21 @@ footer button {
   cursor: pointer;
   padding: 0.5rem;
   text-align: left;
+  width: 100%;
+  position: relative;
 }
 footer button:hover {
   color: #a0aec0;
-}
-.fade-enter-active, .fade-leave-active {
-  transition: opacity 0.5s;
-}
-.fade-enter, .fade-leave-to {
-  opacity: 0;
 }
 a {
   color: #ffffff;
 }
 a.underline:hover {
   text-decoration: underline;
+}
+.impressum-content,
+.datenschutz-content {
+  transition: all 0.3s ease;
 }
 @media (min-width: 768px) {
   footer button {
