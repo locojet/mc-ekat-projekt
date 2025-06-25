@@ -2,54 +2,54 @@
   <footer class="bg-secondary2 text-white py-8 px-4 w-full">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-around text-start">
 
-      <!-- Kontakt (siempre visible) -->
+      <!-- Kontakt -->
       <div id="sec-4" class="mb-6 pl-4 w-full md:w-1/3">
-        <h3 class="font-bold w-full text-left md:text-center mb-2">
+        <button @click="toggleSection('kontakt')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.kontakt.title') }}
-        </h3>
-        <div class="mt-2">
-          <p>
-            <strong>{{ $t('footer.kontakt.company') }}</strong><br>
-            {{ $t('footer.kontakt.address1') }}<br>
-            {{ $t('footer.kontakt.phone1') }}<br>
-            {{ $t('footer.kontakt.fax1') }}<br>
-            {{ $t('footer.kontakt.mobile1') }}<br><br>
+        </button>
+        <transition name="fade">
+          <div v-if="activeSection === 'kontakt'" class="mt-2">
+            <p>
+              <strong>{{ $t('footer.kontakt.company') }}</strong><br>
+              {{ $t('footer.kontakt.address1') }}<br>
+              {{ $t('footer.kontakt.phone1') }}<br>
+              {{ $t('footer.kontakt.fax1') }}<br>
+              {{ $t('footer.kontakt.mobile1') }}<br><br>
 
-            {{ $t('footer.kontakt.address2') }}<br>
-            {{ $t('footer.kontakt.phone2') }}<br>
-            {{ $t('footer.kontakt.fax2') }}<br>
-            {{ $t('footer.kontakt.mobile2') }}
-          </p>
+              {{ $t('footer.kontakt.address2') }}<br>
+              {{ $t('footer.kontakt.phone2') }}<br>
+              {{ $t('footer.kontakt.fax2') }}<br>
+              {{ $t('footer.kontakt.mobile2') }}
+            </p>
 
-          <p>
-            {{ $t('footer.kontakt.email') }}: 
-            <a href="mailto:info@mcekat.de" class="underline">info@mcekat.de</a><br>
-            {{ $t('footer.kontakt.web') }}: 
-            <a href="http://www.mcekat.de" target="_blank" rel="noopener noreferrer" class="underline">www.mcekat.de</a>
-          </p>
-        </div>
+            <p>
+              {{ $t('footer.kontakt.email') }}: 
+              <a href="mailto:info@mcekat.de" class="underline">info@mcekat.de</a><br>
+              {{ $t('footer.kontakt.web') }}: 
+              <a href="http://www.mcekat.de" target="_blank" rel="noopener noreferrer" class="underline">www.mcekat.de</a>
+            </p>
+          </div>
+        </transition>
       </div>
 
-      <!-- Impressum (con despliegue simple) -->
+      <!-- Impressum -->
       <div class="mb-6 pl-4 w-full md:w-1/3">
-        <button @click="toggleImpressum" class="font-bold w-full text-left md:text-center">
+        <button @click="toggleSection('impressum')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.impressum.title') }}
-          <span class="float-right md:float-none">{{ impressumVisible ? '−' : '+' }}</span>
         </button>
-        <div v-show="impressumVisible" class="mt-2 impressum-content">
-          <div v-html="$t('footer.impressum.content')"></div>
-        </div>
+        <transition name="fade">
+          <div v-if="activeSection === 'impressum'" class="mt-2" v-html="$t('footer.impressum.content')"></div>
+        </transition>
       </div>
 
-      <!-- Datenschutz (con despliegue simple) -->
+      <!-- Datenschutz -->
       <div class="mb-6 pl-4 w-full md:w-1/3">
-        <button @click="toggleDatenschutz" class="font-bold w-full text-left md:text-center">
+        <button @click="toggleSection('datenschutz')" class="font-bold w-full text-left md:text-center">
           {{ $t('footer.datenschutz.title') }}
-          <span class="float-right md:float-none">{{ datenschutzVisible ? '−' : '+' }}</span>
         </button>
-        <div v-show="datenschutzVisible" class="mt-2 datenschutz-content">
-          <div v-html="$t('footer.datenschutz.privacyPolicy')"></div>
-        </div>
+        <transition name="fade">
+          <div v-if="activeSection === 'datenschutz'" class="mt-2" v-html="$t('footer.datenschutz.privacyPolicy')"></div>
+        </transition>
       </div>
 
     </div>
@@ -67,34 +67,56 @@ export default {
   name: 'FooterComponent',
   data() {
     return {
-      impressumVisible: false,
-      datenschutzVisible: false
+      activeSection: null,
+      observer: null
     };
   },
   methods: {
-    toggleImpressum() {
-      this.impressumVisible = !this.impressumVisible;
-      // Cierra Datenschutz si Impressum se abre
-      if (this.impressumVisible) {
-        this.datenschutzVisible = false;
-      }
+    toggleSection(section) {
+      this.activeSection = this.activeSection === section ? null : section;
     },
-    toggleDatenschutz() {
-      this.datenschutzVisible = !this.datenschutzVisible;
-      // Cierra Impressum si Datenschutz se abre
-      if (this.datenschutzVisible) {
-        this.impressumVisible = false;
+    handleIntersection(entries) {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && entry.target.id === 'sec-4') {
+          this.activeSection = 'kontakt';
+        }
+      });
+    },
+    setupObserver() {
+      const options = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.1
+      };
+
+      this.observer = new IntersectionObserver(this.handleIntersection, options);
+      const target = document.getElementById('sec-4');
+      if (target) {
+        this.observer.observe(target);
       }
     }
   },
   mounted() {
-    // Scroll a contacto si hay hash en la URL
+    // Comprobar hash al cargar
     if (window.location.hash === '#sec-4') {
-      const element = document.getElementById('sec-4');
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' });
-      }
+      this.activeSection = 'kontakt';
     }
+
+    // Configurar IntersectionObserver
+    this.setupObserver();
+
+    // Escuchar cambios de hash
+    window.addEventListener('hashchange', () => {
+      if (window.location.hash === '#sec-4') {
+        this.activeSection = 'kontakt';
+      }
+    });
+  },
+  beforeDestroy() {
+    if (this.observer) {
+      this.observer.disconnect();
+    }
+    window.removeEventListener('hashchange', this.handleHashChange);
   }
 };
 </script>
@@ -107,21 +129,21 @@ footer button {
   cursor: pointer;
   padding: 0.5rem;
   text-align: left;
-  width: 100%;
-  position: relative;
 }
 footer button:hover {
   color: #a0aec0;
+}
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.5s;
+}
+.fade-enter, .fade-leave-to {
+  opacity: 0;
 }
 a {
   color: #ffffff;
 }
 a.underline:hover {
   text-decoration: underline;
-}
-.impressum-content,
-.datenschutz-content {
-  transition: all 0.3s ease;
 }
 @media (min-width: 768px) {
   footer button {
