@@ -2,39 +2,23 @@
     <section class="bg-secondary2 text-white py-12 w-full">
       <div class="mx-auto max-w-7xl px-10 sm:px-4 text-start">
   
-        <!-- Impressum -->
+        <!-- Legal (Impressum + Datenschutz) -->
         <div class="mb-8">
           <button
-            @click="toggleSection('impressum')"
+            @click="toggleSection('legal')"
             class="flex justify-between items-center w-full text-left font-bold text-xl mb-2"
           >
-            <span>{{ $t('footer.impressum.title') }}</span>
-            <span class="text-2xl">{{ activeSection === 'impressum' ? '−' : '+' }}</span>
+            <span>{{ $t('footer.legal.title') }}</span>
+            <span class="text-2xl">{{ activeSection === 'legal' ? '−' : '+' }}</span>
           </button>
           <transition name="fade">
             <div
-              v-if="activeSection === 'impressum'"
-              class="text-start md:text-justify"
-              v-html="$t('footer.impressum.content')"
-            ></div>
-          </transition>
-        </div>
-  
-        <!-- Datenschutz -->
-        <div class="mb-8">
-          <button
-            @click="toggleSection('datenschutz')"
-            class="flex justify-between items-center w-full text-left font-bold text-xl mb-2"
-          >
-            <span>{{ $t('footer.datenschutz.title') }}</span>
-            <span class="text-2xl">{{ activeSection === 'datenschutz' ? '−' : '+' }}</span>
-          </button>
-          <transition name="fade">
-            <div
-              v-if="activeSection === 'datenschutz'"
-              class="text-start md:text-justify"
-              v-html="$t('footer.datenschutz.privacyPolicy')"
-            ></div>
+              v-if="activeSection === 'legal'"
+              class="text-start md:text-justify space-y-6"
+            >
+              <div v-html="$t('footer.legal.impressum')"></div>
+              <div v-html="$t('footer.legal.datenschutz')"></div>
+            </div>
           </transition>
         </div>
   

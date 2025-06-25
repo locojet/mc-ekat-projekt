@@ -225,7 +225,9 @@ onUnmounted(() => {
 }
 
 .bg-visible {
-  background-color: rgba(49, 61, 76, 0.95);
+  background-color: rgba(49, 61, 76, 0.8); /* mismo color pero con menos opacidad */
+  backdrop-filter: blur(6px); /* desenfoque tipo glassmorphism */
+  -webkit-backdrop-filter: blur(6px); /* soporte para Safari */
 }
 
 .logo {
