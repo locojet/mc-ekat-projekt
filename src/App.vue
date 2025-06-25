@@ -7,11 +7,12 @@ import VideoAbspann from './components/VideoAbspann.vue';
 import Zulassung from './components/Zulassung.vue';
 import Dienstleistungen from './components/Dienstleistungen.vue';
 import Jobs from './components/Jobs.vue';
-import Footer from './components/Footer.vue';
 import About from './components/About.vue';
 import { onMounted } from 'vue'; // Importiere onMounted Funktion aus Vue
 import Cookies from './components/Cookies.vue';
 import Language from './components/LanguageSwitcher.vue';
+import Contact from './components/Contact.vue';
+import LegalSection from './components/LegalSection.vue';
 
 
 
@@ -74,8 +75,8 @@ onMounted(() => {
     <Jobs />
     <About />
     <CallMail />
-    
-    <Footer />
+    <Contact />
+    <LegalSection />
   </div>
 </template>
 
