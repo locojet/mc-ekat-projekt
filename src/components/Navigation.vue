@@ -32,7 +32,7 @@
 
           <!-- Logo y selector de idioma -->
           <Menu as="div" class="relative ml-3 flex items-center gap-4">
-            <a @click.prevent="scrollToSection('#sec-0')" class="cursor-pointer">
+            <a @click.prevent="scrollToSection('#start')" class="cursor-pointer">
               <MenuButton>
                 <img class="logo" src="../assets/logo.png" alt="Logo" />
               </MenuButton>
@@ -62,7 +62,7 @@
                 <div class="flex flex-col space-y-2 items-start">
                   <DisclosureButton 
                     as="a" 
-                    @click.prevent="scrollToSection('#sec-0')" 
+                    @click.prevent="scrollToSection('#start')" 
                     class="text-base font-medium cursor-pointer"
                   >
                     {{ $t('nav.start') }}
@@ -70,7 +70,7 @@
                   <div class="w-3/4 h-px bg-white/30 ml-1"></div>
                   <DisclosureButton 
                     as="a" 
-                    @click.prevent="scrollToSection('#sec-1')" 
+                    @click.prevent="scrollToSection('#services')" 
                     class="text-base font-medium cursor-pointer"
                   >
                     {{ $t('nav.service') }}
@@ -84,7 +84,7 @@
                 <div class="flex flex-col space-y-2 items-end">
                   <DisclosureButton 
                     as="a" 
-                    @click.prevent="scrollToSection('#sec-2')" 
+                    @click.prevent="scrollToSection('#jobs')" 
                     class="text-base font-medium cursor-pointer"
                   >
                     {{ $t('nav.jobs') }}
@@ -92,7 +92,7 @@
                   <div class="w-3/4 h-px bg-white/30 mr-1 self-end"></div>
                   <DisclosureButton 
                     as="a" 
-                    @click.prevent="scrollToSection('#sec-3')" 
+                    @click.prevent="scrollToSection('#about')" 
                     class="text-base font-medium cursor-pointer"
                   >
                     {{ $t('nav.about') }}
@@ -107,7 +107,7 @@
             <!-- Kontakt -->
             <DisclosureButton 
               as="a" 
-              @click.prevent="scrollToSection('#sec-4')" 
+              @click.prevent="scrollToSection('#contact')" 
               class="text-base font-medium cursor-pointer"
             >
               {{ $t('nav.contact') }}
@@ -135,11 +135,11 @@ import LanguageSwitcher from './LanguageSwitcher.vue'
 const { t } = useI18n()
 
 const navigation = computed(() => [
-  { name: t('nav.start'), href: '#sec-0' },
-  { name: t('nav.service'), href: '#sec-1' },
-  { name: t('nav.jobs'), href: '#sec-2' },
-  { name: t('nav.about'), href: '#sec-3' },
-  { name: t('nav.contact'), href: '#sec-4' }
+  { name: t('nav.start'), href: '#start' },
+  { name: t('nav.service'), href: '#services' },
+  { name: t('nav.jobs'), href: '#jobs' },
+  { name: t('nav.about'), href: '#about' },
+  { name: t('nav.contact'), href: '#contact' }
 ])
 
 const isScrolled = ref(false)

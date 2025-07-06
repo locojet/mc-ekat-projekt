@@ -1,5 +1,5 @@
 <template>
-  <div id="sec-1" class="bg-white py-24 sm:py-32 p-4 -mt-6 max-w-7xl">
+  <div id="services" class="bg-white py-24 sm:py-32 p-4 -mt-6 max-w-7xl">
     <div class="mx-auto max-w-7xl">
       <div class="mx-auto max-w-2xl">
         <h2 class="text-3xl font-bold tracking-tight -mt-6 text-gray-900 sm:text-4xl text-center">{{ $t('ndtSection.title') }}</h2>
@@ -157,12 +157,12 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-#sec-1 {
+#services {
   max-width: 75%;
   margin: 0 auto;
 }
 @media screen and (max-width: 768px) {
-  #sec-1 {
+  #services {
     max-width: 100%;
   }
 }

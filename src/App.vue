@@ -11,7 +11,7 @@ import About from './components/About.vue';
 import { onMounted } from 'vue'; // Importiere onMounted Funktion aus Vue
 import Cookies from './components/Cookies.vue';
 import Language from './components/LanguageSwitcher.vue';
-import Footer from './components/Footer.vue';
+import Footer2 from './components/Footer2.vue';
 
 
 
@@ -74,12 +74,12 @@ onMounted(() => {
     <Jobs />
     <About />
     <CallMail />
-    <Footer />
+    <Footer2 />
   </div>
 </template>
 
 <style scoped>
-#sec-1 {
+#services {
   margin-top: -3rem; 
 }
 * {

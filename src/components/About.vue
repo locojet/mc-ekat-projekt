@@ -1,5 +1,5 @@
 <template>
-  <div id="sec-3" class="bg-white py-0 pt-20 text-justify">
+  <div id="about" class="bg-white py-0 pt-20 text-justify">
     <div class="mx-auto max-w-7xl p-10 lg:px-8">
       <div class="mx-auto max-w-2xl">
         <p class="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
@@ -104,13 +104,13 @@ onBeforeUnmount(() => {
 </script>
 
 <style scoped>
-#sec-3 {
+#about {
   max-width: 95%;
   margin: 0 auto;
 }
 
 @media screen and (max-width: 768px) {
-  #sec-3 {
+  #about {
     max-width: 100%;
   }
 }

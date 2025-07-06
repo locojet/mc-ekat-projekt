@@ -1,5 +1,5 @@
 <template>
-  <div id="combined-section" class="bg-secondary2 py-0 pt-20 text-justify">
+  <div id="contact" class="bg-secondary2 py-0 pt-20 text-justify">
     <div class="mx-auto max-w-7xl p-10 lg:px-8">
       <div class="mx-auto max-w-2xl">
         <!-- Sección de Contacto -->
@@ -59,46 +59,46 @@ export default {
 </script>
 
 <style scoped>
-#combined-section {
+#contact {
   max-width: 95%;
   margin: 0 auto;
   background-color: #2c3e50;
   font-family: 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', sans-serif;
 }
 
-.footer-content >>> a {
+:deep(.footer-content a) {
   color: #3498db;
   text-decoration: none;
   transition: color 0.3s;
 }
 
-.footer-content >>> a:hover {
+:deep(.footer-content a:hover) {
   color: #2980b9;
   text-decoration: underline;
 }
 
-.footer-content >>> strong {
+:deep(.footer-content strong) {
   color: #ffffff;
   font-weight: 600;
 }
 
-.footer-content >>> br {
+:deep(.footer-content br) {
   margin-bottom: 0.5rem;
   display: block;
   content: "";
 }
 
 @media screen and (max-width: 768px) {
-  #combined-section {
+  #contact {
     max-width: 100%;
     padding-top: 16px;
   }
-  
+
   .footer-content {
     font-size: 0.9rem;
     line-height: 1.5;
   }
-  
+
   p.text-3xl {
     font-size: 1.8rem;
   }

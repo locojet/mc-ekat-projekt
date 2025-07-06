@@ -1,5 +1,5 @@
 <template>
-  <div class="bg-secondary2 text-white p-4 -mt-10 shadow-lg pb-40 mb-16" id="sec-2">
+  <div class="bg-secondary2 text-white p-4 -mt-10 shadow-lg pb-40 mb-16" id="jobs">
     <h1 class="text-3xl text-white m-8 text-center pt-20 pb-20">
       {{ $t('jobs.title') }}
     </h1>
@@ -96,7 +96,7 @@ export default {
 </script>
 
 <style scoped>
-#sec-2 {
+#jobs {
   box-shadow: 1px 0px 8px 0px rgba(0, 0, 0, 0.5);
 }
 </style>

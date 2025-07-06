@@ -1,5 +1,5 @@
 <template>
-  <div id="sec-0" class="video-container relative w-full overflow-hidden bg-secondary">
+  <div id="start" class="video-container relative w-full overflow-hidden bg-secondary">
     <!-- Video con precarga y eventos de carga -->
     <video
       ref="videoElement"
