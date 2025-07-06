@@ -235,6 +235,11 @@ onUnmounted(() => {
   height: auto;
   margin-top: 1rem;
   transition: transform 0.3s ease;
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent !important;
+}
+.logo:focus {
+  outline: none !important;
 }
 
 .logo:hover {
