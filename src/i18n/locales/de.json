@@ -108,6 +108,7 @@
       
       
       
+      
         "contacto": {
           "kontakt": {
             "title": "Kontakt",
@@ -124,24 +125,18 @@
             "web": "Webseite"
           }
         },
-      
-        
-        
-        
-        
-        
-          "footer": {
-            "impressum": {
-              "title": "Impressum",
-              "content": "<strong>Angaben gemäß § 5 TMG:</strong><br>m-c-EKAT Verschleißschutz & Reparatur GmbH<br>Heidmühlenweg 48a, D-25336 Elmshorn<br>Kaltenhoefer Weg 1c, D-23999 Kirchdorf/Poel<br><br><strong>Registergericht:</strong> Amtsgericht Pinneberg<br><strong>Handelsregister:</strong> HRB 2315 EL<br><strong>Umsatzsteuer-Ident.Nr.:</strong> DE 230 119 681 (gemäß § 27 a UStG)<br><br><strong>Geschäftsführer:</strong> Mathias Ekat, Christian Ekat<br><strong>Internet:</strong> info@mcekat.de<br><br><strong>Verantwortlich für den Inhalt nach § 55 Abs. 2 RStV:</strong><br>Christian Ekat, Kaltenhöfer Weg 1c, 23999 Insel Poel<br><br><strong>Hinweis auf EU-Streitschlichtung:</strong><br>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href='http://ec.europa.eu/consumers/odr' target='_blank' rel='noopener noreferrer'>http://ec.europa.eu/consumers/odr</a><br>Unsere E-Mail-Adresse finden Sie oben im Impressum."
-            },
-            "datenschutz": {
-              "title": "Datenschutz",
-              "privacyPolicy": "<strong>Verantwortliche Stelle:</strong><br>m-c-EKAT Verschleißschutz & Reparatur GmbH<br>Christian Ekat<br>Heidmühlenweg 48a<br>D-25336 Elmshorn<br><br><strong>Datensicherheit:</strong><br>Wir beachten die EU-Datenschutzgrundverordnung (DSGVO) und das Bundesdatenschutzgesetz (BDSG).<br><br><strong>Ihre Rechte:</strong><br>Sie haben Anspruch auf Auskunft, Berichtigung, Sperrung oder Löschung Ihrer Daten. Kontaktieren Sie uns jederzeit über die im Impressum angegebenen Daten.<br><br><strong>Server-Log-Files:</strong><br>Unser Provider erhebt automatisch: Browsertyp/-version, Betriebssystem, Referrer URL, Hostname und Uhrzeit der Serveranfrage.<br><br><strong>Cookies:</strong><br>Diese Website verwendet Cookies zur Verbesserung der Nutzererfahrung. Sie können Cookies in Ihrem Browser deaktivieren."
-            },
-            "rights_reserved_short": "m-c-EKAT Verschleißschutz & Reparatur GmbH. Alle Rechte vorbehalten"
+        "footer": {
+          "impressum": {
+            "title": "Impressum",
+            "content": "<p><strong>Angaben gemäß § 5 TMG:</strong></p><p>m-c-EKAT Verschleißschutz & Reparatur GmbH<br>Heidmühlenweg 48a<br>D-25336 Elmshorn</p><p><strong>Registergericht:</strong> Amtsgericht Pinneberg<br><strong>Handelsregister:</strong> HRB 2315 EL</p><p><strong>Umsatzsteuer-Ident.Nr.:</strong> DE 230 119 681</p><p><strong>Geschäftsführer:</strong> Mathias Ekat, Christian Ekat</p>"
           },
-        
+          "datenschutz": {
+            "title": "Datenschutz",
+            "content": "<p><strong>Verantwortliche Stelle:</strong></p><p>m-c-EKAT Verschleißschutz & Reparatur GmbH<br>Christian Ekat<br>Heidmühlenweg 48a<br>D-25336 Elmshorn</p><p>Wir beachten die EU-Datenschutzgrundverordnung (DSGVO) und das Bundesdatenschutzgesetz (BDSG).</p>"
+          },
+          "rights_reserved": "m-c-EKAT Verschleißschutz & Reparatur GmbH. Alle Rechte vorbehalten"
+        },
+      
         
         
         

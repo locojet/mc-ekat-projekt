@@ -107,7 +107,7 @@
             <!-- Kontakt -->
             <DisclosureButton 
               as="a" 
-              @click.prevent="scrollToSection('#contact')" 
+              @click.prevent="scrollToSection('#footer')" 
               class="text-base font-medium cursor-pointer"
             >
               {{ $t('nav.contact') }}
@@ -139,7 +139,7 @@ const navigation = computed(() => [
   { name: t('nav.service'), href: '#services' },
   { name: t('nav.jobs'), href: '#jobs' },
   { name: t('nav.about'), href: '#about' },
-  { name: t('nav.contact'), href: '#contact' }
+  { name: t('nav.contact'), href: '#footer' }
 ])
 
 const isScrolled = ref(false)

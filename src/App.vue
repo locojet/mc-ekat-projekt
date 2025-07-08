@@ -11,7 +11,7 @@ import About from './components/About.vue';
 import { onMounted } from 'vue'; // Importiere onMounted Funktion aus Vue
 import Cookies from './components/Cookies.vue';
 import Language from './components/LanguageSwitcher.vue';
-import Footer2 from './components/Footer2.vue';
+import Footer from './components/Footer.vue';
 
 
 
@@ -67,14 +67,14 @@ onMounted(() => {
     <PageLoader />
     <Language />
     <Cookies />
-    <navigation />
+    <Navigation />
     <VideoAbspann />
     <Zulassung />
     <Dienstleistungen />
     <Jobs />
     <About />
     <CallMail />
-    <Footer2 />
+    <Footer />
   </div>
 </template>
 
