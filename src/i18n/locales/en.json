@@ -112,22 +112,22 @@
               
               
               
+              
                 "contacto": {
                   "kontakt": {
                     "title": "Contact",
-                    "company": "m-c-EKAT Verschleißschutz & Reparatur GmbH",
+                    "company": "m-c-EKAT Wear Protection & Repair GmbH",
                     "address1": "Heidmühlenweg 48a, D-25336 Elmshorn",
-                    "phone1": "Phone: +49 (0) 4121 476 99 0",
-                    "fax1": "Fax: +49 (0) 4121 476 99 29",
-                    "mobile1": "Mobile: +49 (0) 172 433 22 10",
-                    "address2": "Kaltenhoefer Weg 1c, D-23999 Kirchdorf/Poel",
-                    "phone2": "Phone: +49 (0) 38425 224 99 0",
-                    "fax2": "Fax: +49 (0) 38425 224 99 29",
-                    "mobile2": "Mobile: +49 (0) 172 433 22 11",
+                    "phone1": "Phone: +49 (0) 4121 579254",
+                    "mobile1": "Mobile: +49 (0) 173 6003264",
+                    "address2": "Kaltenhöfer Weg 1c, D-23999 Kirchdorf/Poel",
+                    "phone2": "Phone: +49 (0) 38425 42507",
+                    "mobile2": "Mobile: +49 (0) 173 2371591",
                     "email": "Email",
                     "web": "Website"
                   }
                 },
+              
                 "footer": {
                   "impressum": {
                     "title": "Legal Notice",
