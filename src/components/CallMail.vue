@@ -7,7 +7,7 @@
       <img src="../assets/mail.svg" alt="Email" class="h-9 w-9">
       <span class="text-xs text-white">{{ $t('contact.email') }}</span> 
     </a>
-    <a href="tel:+491234567890" class="flex flex-col items-center">
+    <a href="tel:+49 173 2371591" class="flex flex-col items-center">
       <img src="../assets/call.svg" alt="Anrufen" class="h-9 w-9">
       <span class="text-xs text-white">{{ $t('contact.call') }}</span>
     </a>

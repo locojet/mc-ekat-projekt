@@ -16,6 +16,7 @@ import Footer from './components/Footer.vue';
 
 
 
+
 // onMounted Hook: Führt Code aus, sobald die Komponente gemountet ist
 onMounted(() => {
   // Erstellt ein neues Skript-Element für JSON-LD
@@ -75,6 +76,7 @@ onMounted(() => {
     <About />
     <CallMail />
     <Footer />
+    
   </div>
 </template>
 

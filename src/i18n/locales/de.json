@@ -110,20 +110,26 @@
       
       
       
-        "contacto": {
-          "kontakt": {
-            "title": "Kontakt",
-            "company": "m-c-EKAT Verschleißschutz & Reparatur GmbH",
-            "address1": "Heidmühlenweg 48a, D-25336 Elmshorn",
-            "phone1": "Telefon: +49 (0) 4121 579254",
-            "mobile1": "Mobil: +49 (0) 173 6003264",
-            "address2": "Kaltenhöfer Weg 1c, D-23999 Kirchdorf/Poel",
-            "phone2": "Telefon: +49 (0) 38425 42507",
-            "mobile2": "Mobil: +49 (0) 173 2371591",
-            "email": "E-Mail",
-            "web": "Webseite"
-          }
-        },
+       "contacto": {
+  "kontakt": {
+    "title": "Kontakt",
+    "company": "m-c-EKAT Verschleißschutz & Reparatur GmbH",
+    "address1": "Heidmühlenweg 48a, D- 25336 Elmshorn",
+    "phone1_label": "Telefon",
+    "phone1": "+49 4121 579254",
+    "mobile1_label": "Mobil",
+    "mobile1": "+49 173 6003264",
+    "address2": "Kaltenhöfer Weg 1c, D-23999 Insel Poel",
+    "phone2_label": "Telefon",
+    "phone2": "+49 38425 42507",
+    "mobile2_label": "Mobil",
+    "mobile2": "+49 173 2371591",
+    "email": "E-Mail",
+    "web": "Webseite",
+    "web_com": "Webseite (International)"
+  }
+},
+      
       
         "footer": {
           "impressum": {
